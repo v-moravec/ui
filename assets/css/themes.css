@@ -1,0 +1,91 @@
+.theme-default {
+  --background: 0 0% 100%;
+  --primary: 0 0% 0%;
+  --primary-contrast: 0 0% 100%;
+  --secondary: 240 4.8% 95.9%;
+  --secondary-contrast: 0 0% 0%;
+  --disabled: 0 0% 96.08%;
+  --disabled-contrast: 0 0% 83.14%;
+  --border: 0 0% 89.8%;
+  --radius: 0.5rem;
+}
+
+.dark .theme-default {
+  --background: 0 0% 10%;
+  --primary: 0 0% 100%;
+  --primary-contrast: 0 0% 100%;
+  --secondary: 0 0% 18%;
+  --secondary-contrast: 0 0% 100%;
+  --disabled: 0 0% 25.1%;
+  --disabled-contrast: 0 0% 63.92%;
+  --border: 0 0% 32.16%;
+}
+
+.theme-blue {
+  --background: 0 0% 100%;
+  --primary: 207 100% 50%;
+  --primary-contrast: 0 0% 100%;
+  --secondary: 200 50.8% 95.9%;
+  --secondary-contrast: 0 0% 0%;
+  --disabled: 0 0% 96.08%;
+  --disabled-contrast: 0 0% 83.14%;
+  --border: 207 50% 89.8%;
+  --radius: 0.5rem;
+}
+
+.dark .theme-blue {
+  --background: 0 0% 10%;
+  --primary: 207 100% 60%;
+  --primary-contrast: 0 0% 100%;
+  --secondary: 207 50% 18%;
+  --secondary-contrast: 0 0% 100%;
+  --disabled: 0 0% 25.1%;
+  --disabled-contrast: 0 0% 63.92%;
+  --border: 207 20% 25.6%;
+}
+
+.theme-red {
+  --background: 0 0% 100%;
+  --primary: 0 100% 50%;
+  --primary-contrast: 0 0% 100%;
+  --secondary: 0 50.8% 95.9%;
+  --secondary-contrast: 0 0% 0%;
+  --disabled: 0 0% 96.08%;
+  --disabled-contrast: 0 0% 83.14%;
+  --border: 0 50% 89.8%;
+  --radius: 0.5rem;
+}
+
+.dark .theme-red {
+  --background: 0 0% 10%;
+  --primary: 0 100% 60%;
+  --primary-contrast: 0 0% 100%;
+  --secondary: 0 50% 18%;
+  --secondary-contrast: 0 0% 100%;
+  --disabled: 0 0% 25.1%;
+  --disabled-contrast: 0 0% 63.92%;
+  --border: 0 20% 25.6%;
+}
+
+.theme-orange {
+  --background: 0 0% 100%;
+  --primary: 32 90% 50%;
+  --primary-contrast: 32 0% 100%;
+  --secondary: 32 50.8% 95.9%;
+  --secondary-contrast: 32 0% 0%;
+  --disabled: 32 0% 96.08%;
+  --disabled-contrast: 32 0% 83.14%;
+  --border: 32 50% 89.8%;
+  --radius: 0.5rem;
+}
+
+.dark .theme-orange {
+  --background: 0 0% 10%;
+  --primary: 32 100% 60%;
+  --primary-contrast: 32 0% 0%;
+  --secondary: 32 50% 18%;
+  --secondary-contrast: 32 0% 100%;
+  --disabled: 32 0% 25.1%;
+  --disabled-contrast: 32 0% 63.92%;
+  --border: 32 20% 25.6%;
+}
