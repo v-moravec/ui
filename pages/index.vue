@@ -1,11 +1,11 @@
 <script setup lang="ts">
 defineOgImageComponent('Default', {
-  title: 'Kickstart your project with ease.'
+  title: 'Kickstart your project with ease.',
 })
 </script>
 
 <template>
-  <div class="overflow-hidden">
+  <div class="relative overflow-hidden">
     <div class="z-20 mx-auto flex min-h-[calc(100svh-64px)] max-w-7xl flex-col justify-center px-4 py-10 sm:py-0">
       <div class="z-10 mx-auto flex max-w-3xl flex-col justify-center">
         <div class="max-w-[725px] text-center">
@@ -14,14 +14,14 @@ defineOgImageComponent('Default', {
           >
             Kickstart your project with ease.
           </h1>
-          <div class="sm:px-20">
+          <div class="sm:px-20 text-balance">
             <p class="text-17px font-normal tracking-[-0.16px] md:text-xl">
               Flexible collection of reusable components and themes.
             </p>
             <p class="text-17px font-normal tracking-[-0.16px] md:text-xl">Make it yours.</p>
           </div>
         </div>
-        <div class="mx-auto mt-10 flex gap-5">
+        <div class="mx-auto mt-10 flex flex-wrap justify-center gap-5">
           <NuxtLink to="/docs/getting-started/introduction">
             <UiButton>Get started</UiButton>
           </NuxtLink>
