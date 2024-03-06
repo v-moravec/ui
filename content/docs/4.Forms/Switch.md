@@ -7,3 +7,14 @@ links:
 ---
 
 ## TODO
+
+::preview-and-code
+---
+name: UiSwitch
+props:
+  type: 'primary'
+  size: 'md'
+---
+Button
+::
+

@@ -7,7 +7,7 @@ const title = computed(() => props.title.slice(0, 60))
 </script>
 
 <template>
-  <div class="flex h-full w-full flex-col justify-center bg-primary">
+  <div class="flex h-full w-full flex-col justify-center bg-white">
     <svg
       class="absolute right-0 top-0"
       width="1200"
@@ -38,11 +38,11 @@ const title = computed(() => props.title.slice(0, 60))
     </svg>
 
     <div class="w-[600px] pl-[100px]">
-      <p class="mb-4 text-[24px] font-semibold text-primary">v-moravec/ui</p>
-      <h1 class="m-0 mb-4 flex w-[600px] items-center text-[60px] font-semibold text-primary">
+      <p class="mb-4 text-[24px] font-semibold text-black">v-moravec/ui</p>
+      <h1 class="m-0 mb-4 flex w-[600px] items-center text-[60px] font-semibold text-black">
         <span>{{ title }}</span>
       </h1>
-      <p v-if="description" class="text-[32px] leading-tight text-primary">
+      <p v-if="description" class="text-[32px] leading-tight text-black">
         {{ description?.slice(0, 200) }}
       </p>
     </div>

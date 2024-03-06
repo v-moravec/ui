@@ -13,7 +13,7 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       routes: ['/api/search.json'],
-    }
+    },
   },
   css: ['~/assets/css/themes.css'],
   modules: ['@nuxt/content', '@nuxtjs/tailwindcss', 'nuxt-icon', '@nuxtjs/color-mode', 'nuxt-icon', '@nuxtjs/seo'],
