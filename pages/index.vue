@@ -2,6 +2,10 @@
 defineOgImageComponent('Default', {
   title: 'Kickstart your project with ease.',
 })
+
+const i = ref(0)
+
+const { addNotification } = useNotifications()
 </script>
 
 <template>
@@ -14,7 +18,7 @@ defineOgImageComponent('Default', {
           >
             Kickstart your project with ease.
           </h1>
-          <div class="sm:px-20 text-balance">
+          <div class="text-balance sm:px-20">
             <p class="text-17px font-normal tracking-[-0.16px] md:text-xl">
               Flexible collection of reusable components and themes.
             </p>
@@ -25,8 +29,8 @@ defineOgImageComponent('Default', {
           <NuxtLink to="/docs/getting-started/introduction">
             <UiButton>Get started</UiButton>
           </NuxtLink>
-          <NuxtLink to="/elements/getting-started/elements">
-            <UiButton type="secondary" outline>Use elements</UiButton>
+          <NuxtLink to="/blocks/getting-started/blocks">
+            <UiButton type="secondary" outline>Use blocks</UiButton>
           </NuxtLink>
         </div>
       </div>

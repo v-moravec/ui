@@ -4,3 +4,9 @@ description: Enable users to select or deselect a single option from a set of ch
 ---
 
 ## TODO
+
+::preview-and-code
+---
+name: UiCheckbox
+---
+::

@@ -7,17 +7,19 @@
         <div class="flex items-center gap-10">
           <div class="lg:hidden">
             <UiSidebar>
-              <div>
-                <div class="flex justify-between gap-2">
-                  <FullLogo />
-                  <button>
-                    <Icon name="fa6-solid:xmark" class="size-4" />
-                  </button>
+              <template #default="{ close }">
+                <div>
+                  <div class="flex justify-between gap-2">
+                    <FullLogo />
+                    <button @click="close">
+                      <Icon name="fa6-solid:xmark" class="size-4" />
+                    </button>
+                  </div>
+                  <Navigation class="py-8 pr-2" />
                 </div>
-                <Navigation class="py-8 pr-2" />
-              </div>
-              <template #button>
-                <button class="flex items-center justify-center">
+              </template>
+              <template #activator="{ open }">
+                <button @click="open" class="flex items-center justify-center">
                   <Icon name="fa6-solid:bars" class="size-4" />
                 </button>
               </template>
@@ -33,11 +35,8 @@
             <UiBadge class="-translate-x-1 -translate-y-2 scale-75">alpha</UiBadge>
           </NuxtLink>
           <div class="hidden items-center gap-2 md:flex">
-            <NuxtLink to="/docs/getting-started/introduction">
-              <UiButton type="accent" size="sm">Docs</UiButton>
-            </NuxtLink>
-            <NuxtLink to="/elements/getting-started/elements">
-              <UiButton type="accent" size="sm">Elements</UiButton>
+            <NuxtLink v-for="link in docsLinks" :to="link.to">
+              <UiButton type="accent" size="sm">{{ link.label }}</UiButton>
             </NuxtLink>
           </div>
         </div>
@@ -59,6 +58,21 @@
 
 <script setup lang="ts">
 const showMenu = ref(false)
+
+const docsLinks = [
+  {
+    to: '/docs/getting-started/introduction',
+    label: 'Docs',
+  },
+  {
+    to: '/blocks/getting-started/blocks',
+    label: 'Blocks',
+  },
+  {
+    to: '/theming',
+    label: 'Theming',
+  },
+]
 
 const links = [
   {

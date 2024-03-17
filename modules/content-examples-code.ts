@@ -70,7 +70,7 @@ export default defineNuxtModule({
           (v) =>
             v.shortPath.includes('components/content/examples/') ||
             v.shortPath.includes('components/ui/') ||
-            v.shortPath.includes('components/content/elements')
+            v.shortPath.includes('components/content/blocks')
         )
         .reduce((acc, component) => {
           acc[component.pascalName] = component

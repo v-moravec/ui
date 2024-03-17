@@ -17,9 +17,24 @@ export default defineNuxtConfig({
   },
   css: ['~/assets/css/themes.css'],
   modules: ['@nuxt/content', '@nuxtjs/tailwindcss', 'nuxt-icon', '@nuxtjs/color-mode', 'nuxt-icon', '@nuxtjs/seo'],
+  mdc: {
+    highlight: {
+      theme: {
+        default: 'aurora-x',
+        dark: 'aurora-x',
+        light: 'aurora-x',
+      },
+      langs: ['vue'],
+    },
+  },
   content: {
     highlight: {
-      theme: 'aurora-x',
+      theme: {
+        default: 'aurora-x',
+        dark: 'aurora-x',
+        light: 'aurora-x',
+      },
+      langs: ['vue'],
     },
     experimental: {
       search: {

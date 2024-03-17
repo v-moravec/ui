@@ -14,6 +14,6 @@ const modelValue = defineModel()
   <input
     v-bind="props"
     v-model="modelValue"
-    :class="cn('rounded-lg border border-neutral-300 p-2 dark:border-neutral-700', props.class)"
+    :class="cn('w-full rounded-lg border border-neutral-300 p-2 text-sm dark:border-neutral-700', props.class)"
   />
 </template>
