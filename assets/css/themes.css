@@ -30,7 +30,7 @@
   --disabled: 0 0% 96.08%;
   --disabled-contrast: 0 0% 83.14%;
   --border: 207 50% 89.8%;
-  --radius: 0.5rem;
+  --radius: 0rem;
 }
 
 .dark .theme-blue {
@@ -53,7 +53,7 @@
   --disabled: 0 0% 96.08%;
   --disabled-contrast: 0 0% 83.14%;
   --border: 0 50% 89.8%;
-  --radius: 0.5rem;
+  --radius: 0.25rem;
 }
 
 .dark .theme-red {
@@ -76,7 +76,7 @@
   --disabled: 32 0% 96.08%;
   --disabled-contrast: 32 0% 83.14%;
   --border: 32 50% 89.8%;
-  --radius: 0.5rem;
+  --radius: 0.15rem;
 }
 
 .dark .theme-orange {
@@ -88,4 +88,27 @@
   --disabled: 32 0% 25.1%;
   --disabled-contrast: 32 0% 63.92%;
   --border: 32 20% 25.6%;
+}
+
+.theme-creme {
+  --background: 60 80% 90%;
+  --primary: 40 40% 50%;
+  --primary-contrast: 0 0% 100%;
+  --secondary: 60 50% 90%;
+  --secondary-contrast: 0 0% 0%;
+  --disabled: 0 0% 96.08%;
+  --disabled-contrast: 0 0% 83.14%;
+  --border: 60 50% 70%;
+  --radius: 1.5rem;
+}
+
+.dark .theme-creme {
+  --background: 50 20% 15%;
+  --primary: 40 40% 50%;
+  --primary-contrast: 0 0% 100%;
+  --secondary: 50 25% 35%;
+  --secondary-contrast: 0 0% 100%;
+  --disabled: 0 0% 25.1%;
+  --disabled-contrast: 0 0% 63.92%;
+  --border: 50 25% 25%;
 }

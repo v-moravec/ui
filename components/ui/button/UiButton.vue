@@ -11,49 +11,26 @@ const props = defineProps<{
 }>()
 
 const base = 'whitespace-nowrap rounded-lg flex justify-center items-center '
-const outline = 'border border-border '
+const outline = 'ring-1 ring-inset ring-border '
 const primary = 'bg-primary hover:bg-primary/80 font-medium text-primary-contrast '
 const secondary = 'bg-secondary hover:bg-secondary/80 text-secondary-contrast font-medium '
 const accent = 'hover:bg-neutral-100 text-accent-contrast font-medium dark:hover:bg-neutral-800 '
 
-const cls = computed(() => {
-  let clsTmp = base
+const types = {
+  primary: primary,
+  secondary: secondary,
+  accent: accent,
+}
 
-  if (props.outline) {
-    clsTmp += outline
-  }
+const sizes = {
+  sm: 'px-2 py-1 rounded-md text-sm gap-1 ',
+  md: 'px-5 py-2 text-base gap-2 ',
+  lg: 'px-10 py-4 text-lg gap-3 ',
+}
 
-  switch (props.type) {
-    case 'primary':
-      clsTmp += primary
-      break
-    case 'secondary':
-      clsTmp += secondary
-      break
-    case 'accent':
-      clsTmp += accent
-      break
-    default:
-      clsTmp += primary
-      break
-  }
-
-  switch (props.size) {
-    case 'sm':
-      clsTmp += 'px-2 py-1 rounded-md text-sm gap-1 '
-      break
-    case 'md':
-      clsTmp += 'px-5 py-2.5 text-base gap-2 '
-      break
-    case 'lg':
-      clsTmp += 'px-10 py-4 text-lg gap-3 '
-      break
-    default:
-      clsTmp += 'px-10 py-2.5 text-base gap-4 '
-  }
-
-  return clsTmp
-})
+const cls = computed(
+  () => `${base}${props.outline ? outline : ''}${types[props.type || 'primary']}${sizes[props.size || 'md']}`
+)
 </script>
 
 <template>

@@ -9,7 +9,7 @@ function changeTheme(theme: string) {
   currentTheme.value = theme
 }
 
-const themes = [{ class: 'theme-default' }, { class: 'theme-blue' }, { class: 'theme-red' }, { class: 'theme-orange' }]
+const themes = [{ class: 'theme-default' }, { class: 'theme-blue' }, { class: 'theme-red' }, { class: 'theme-orange' }, { class: 'theme-creme' }]
 </script>
 
 <template>
