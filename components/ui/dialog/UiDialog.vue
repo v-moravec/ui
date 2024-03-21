@@ -41,7 +41,7 @@ function openModal() {
             leave-to="opacity-0 scale-95"
           >
             <DialogPanel
-              class="w-full max-w-md transform overflow-hidden rounded-lg bg-white p-6 text-left align-middle shadow-xl transition-all"
+              class="w-full max-w-md transform overflow-hidden rounded-lg bg-white p-6 text-left align-middle transition-all"
             >
               <slot :close="closeModal"></slot>
             </DialogPanel>

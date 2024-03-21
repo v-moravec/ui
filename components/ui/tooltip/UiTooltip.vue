@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { useFloating, autoUpdate, shift, autoPlacement, offset, limitShift, flip } from '@floating-ui/vue'
 import type { Placement } from '@floating-ui/vue'
 
 const props = withDefaults(
@@ -14,8 +13,7 @@ const props = withDefaults(
   }
 )
 
-const anchorRef = ref()
-const tooltipRef = ref()
+const [anchor, tooltip, floatingStyles] = useUiFloating(props.placement, props.offset)
 
 const open = ref(false)
 
@@ -26,23 +24,16 @@ function onMouseEnter() {
 function onMouseLeave() {
   open.value = false
 }
-
-const { floatingStyles } = useFloating(anchorRef, tooltipRef, {
-  strategy: 'fixed',
-  placement: props.placement,
-  whileElementsMounted: autoUpdate,
-  middleware: [offset(props.offset), flip({ fallbackAxisSideDirection: 'end' }), shift()],
-})
 </script>
 
 <template>
   <div>
-    <div ref="anchorRef" @mouseenter="onMouseEnter" @mouseleave="onMouseLeave">
+    <div ref="anchor" @mouseenter="onMouseEnter" @mouseleave="onMouseLeave">
       <slot name="activator">
         <UiButton>Hover me</UiButton>
       </slot>
     </div>
-    <div v-if="open" :style="floatingStyles" ref="tooltipRef" class="px-2">
+    <div v-if="open" :style="floatingStyles" ref="tooltip" class="px-2">
       <Transition
         appear
         enterActiveClass="motion-safe:transition duration-300"

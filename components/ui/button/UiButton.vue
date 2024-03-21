@@ -12,9 +12,9 @@ const props = defineProps<{
 
 const base = 'whitespace-nowrap rounded-lg flex justify-center items-center '
 const outline = 'ring-1 ring-inset ring-border '
-const primary = 'bg-primary hover:bg-primary/80 font-medium text-primary-contrast '
-const secondary = 'bg-secondary hover:bg-secondary/80 text-secondary-contrast font-medium '
-const accent = 'hover:bg-neutral-100 text-accent-contrast font-medium dark:hover:bg-neutral-800 '
+const primary = 'bg-primary hover:bg-primary/80 active:bg-primary/70 font-medium text-primary-contrast '
+const secondary = 'bg-secondary hover:bg-secondary/80 active:bg-secondary/60 text-secondary-contrast font-medium '
+const accent = 'hover:bg-neutral-100 active:bg-neutral-200 text-accent-contrast font-medium dark:hover:bg-neutral-800 '
 
 const types = {
   primary: primary,

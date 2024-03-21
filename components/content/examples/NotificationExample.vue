@@ -21,7 +21,7 @@ const time = ref(2000)
         <p class="mb-0.5 text-sm">Time</p>
         <UiInput type="number" v-model="time" />
       </div>
-      <UiButton class="justify-center text-sm" @click="addNotification({ title, description, time })" outline>
+      <UiButton class="justify-center text-sm" @click="addNotification({ title, description, time })">
         Add notification
       </UiButton>
     </UiCard>
