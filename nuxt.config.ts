@@ -13,6 +13,7 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       routes: ['/api/search.json'],
+      autoSubfolderIndex: false
     },
   },
   css: ['~/assets/css/themes.css'],
@@ -51,6 +52,7 @@ export default defineNuxtConfig({
     url: 'https://ui.vojtamoravec.cz',
     name: 'v-moravec/ui',
     description: 'Flexible collection of reusable components and themes. Make it yours.',
+    trailingSlash: false,
   },
   devtools: {
     enabled: true,
