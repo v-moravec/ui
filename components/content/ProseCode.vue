@@ -58,10 +58,7 @@ export default defineComponent({
       Copy
     </button>
 
-    <span
-      v-if="filename"
-      class="absolute bottom-8 right-5 text-sm text-white transition-opacity group-hover:opacity-0"
-    >
+    <span v-if="filename" class="absolute bottom-8 right-5 text-sm text-white transition-opacity group-hover:opacity-0">
       {{ filename }}
     </span>
 

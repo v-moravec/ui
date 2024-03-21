@@ -7,9 +7,7 @@ export function useToast() {
       ...notification,
     }
 
-    const index = notifications.value.findIndex(
-      (n: Notification) => n.id === body.id
-    )
+    const index = notifications.value.findIndex((n: Notification) => n.id === body.id)
     if (index === -1) {
       notifications.value.push(body as Notification)
     }
@@ -18,9 +16,7 @@ export function useToast() {
   }
 
   function remove(id: string) {
-    notifications.value = notifications.value.filter(
-      (n: Notification) => n.id !== id
-    )
+    notifications.value = notifications.value.filter((n: Notification) => n.id !== id)
   }
 
   return {

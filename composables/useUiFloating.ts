@@ -1,12 +1,20 @@
-import type { Placement, MaybeElement } from '@floating-ui/vue'
+import type { Placement, Strategy, MaybeElement } from '@floating-ui/vue'
 import { useFloating, autoUpdate, offset, flip, shift } from '@floating-ui/vue'
 
-export const useUiFloating = (placement: Placement, offsetSize: number = 5) => {
+export const useUiFloating = ({
+  placement = 'bottom',
+  offsetSize = 5,
+  strategy = 'fixed',
+}: {
+  placement?: Placement
+  offsetSize?: number
+  strategy?: Strategy
+}) => {
   const anchor = ref<MaybeElement<HTMLElement>>(null)
   const floating = ref<MaybeElement<HTMLElement>>(null)
 
   const { floatingStyles } = useFloating(anchor, floating, {
-    strategy: 'fixed',
+    strategy,
     placement,
     whileElementsMounted: autoUpdate,
     middleware: [shift(), flip({ fallbackAxisSideDirection: 'end' }), offset(offsetSize)],

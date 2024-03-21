@@ -3,7 +3,7 @@
 <template>
   <UiSidebar>
     <template #activator="{ open }">
-      <UiButton icon="fa6-solid:arrow-right" @click="open"></UiButton>
+      <UiButton size="sm" @click="open">Open sidebar</UiButton>
     </template>
     <template #default="{ close }">
       <div class="mb-5">

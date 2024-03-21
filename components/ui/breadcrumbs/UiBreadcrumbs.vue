@@ -6,9 +6,9 @@ const props = defineProps<{
 
 <template>
   <nav aria-label="Breadcrumb">
-    <ul class="flex">
+    <ul class="flex items-baseline rounded-lg border border-border bg-secondary px-4 py-1 text-secondary-contrast">
       <template v-for="(item, index) in props.items" :key="index">
-        <li>
+        <li class="flex items-baseline hover:underline">
           <slot
             name="breadcrumb"
             :to="item.to"

@@ -6,7 +6,7 @@
       <div class="container relative z-10 mx-auto flex h-16 max-h-16 items-center justify-between p-4">
         <div class="flex items-center gap-10">
           <div class="lg:hidden">
-            <UiSidebar>
+            <UiSidebar position="left">
               <template #default="{ close }">
                 <div>
                   <div class="flex justify-between gap-2">

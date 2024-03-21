@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue'
 
-const [anchor, floating, floatingStyles] = useUiFloating('bottom')
+const [anchor, floating, floatingStyles] = useUiFloating({})
 </script>
 
 <template>
@@ -12,7 +12,7 @@ const [anchor, floating, floatingStyles] = useUiFloating('bottom')
           <UiButton size="md" type="primary">Open</UiButton>
         </slot>
       </PopoverButton>
-      <div ref="floating" :style="floatingStyles">
+      <div ref="floating" class="max-w-[100vw] px-2" :style="floatingStyles">
         <Transition
           appear
           enterActiveClass="motion-safe:transition duration-300"
@@ -22,9 +22,7 @@ const [anchor, floating, floatingStyles] = useUiFloating('bottom')
           leaveFromClass="opacity-100 translate-y-0"
           leaveToClass="opacity-0 translate-y-1"
         >
-          <PopoverPanel
-            class="z-10 mt-3 max-w-[100vw] overflow-hidden rounded-lg border border-border bg-background p-4"
-          >
+          <PopoverPanel class="z-10 mt-3 overflow-hidden rounded-lg border border-border bg-background p-4">
             <slot></slot>
           </PopoverPanel>
         </Transition>

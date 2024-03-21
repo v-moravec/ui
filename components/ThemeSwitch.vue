@@ -24,7 +24,7 @@ const themes = [{ class: 'theme-default' }, { class: 'theme-blue' }, { class: 't
           <span class="bg-primary size-3 rounded-full m-1"></span>
         </button>
       </template>
-      <div class="flex gap-4">
+      <div class="flex flex-wrap gap-4">
         <button
           v-for="(theme, index) in themes"
           :key="index"

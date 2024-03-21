@@ -1,6 +1,15 @@
 <script setup lang="ts">
 import { TransitionRoot, TransitionChild, Dialog, DialogPanel } from '@headlessui/vue'
 
+const props = withDefaults(
+  defineProps<{
+    scrollInside?: boolean
+  }>(),
+  {
+    scrollInside: false,
+  }
+)
+
 const isOpen = defineModel<boolean>()
 
 function closeModal() {
@@ -41,9 +50,11 @@ function openModal() {
             leave-to="opacity-0 scale-95"
           >
             <DialogPanel
-              class="w-full max-w-md transform overflow-hidden rounded-lg bg-white p-6 text-left align-middle transition-all"
+              class="w-full max-w-md transform overflow-hidden rounded-lg bg-white text-left align-middle transition-all"
             >
-              <slot :close="closeModal"></slot>
+              <div class="overflow-y-auto p-6" :class="{ 'max-h-[calc(100vh-3rem)]': props.scrollInside }">
+                <slot :close="closeModal"></slot>
+              </div>
             </DialogPanel>
           </TransitionChild>
         </div>

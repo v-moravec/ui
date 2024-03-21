@@ -9,7 +9,7 @@ const props = defineProps<{
 
 const data = await fetchContentExampleCode(props.name)
 
-const hasCode = computed(() => !props.hiddenCode && (data?.code || instance.slots.code))
+const hasCode = computed(() => data?.code)
 
 const highlighter = useShikiHighlighter()
 const { data: ast } = await useAsyncData(`content-example-${props.name}-ast`, () =>
@@ -30,7 +30,6 @@ const { data: ast } = await useAsyncData(`content-example-${props.name}-ast`, ()
 
 <template>
   <div class="my-4" v-if="hasCode">
-    <ContentSlot v-if="$slots.code" :use="$slots.code" />
-    <ContentRenderer v-else :value="ast" class="[&>div>pre]:!mt-0 [&>div>pre]:!rounded-t-none" />
+    <ContentRenderer :value="ast" class="[&>div>pre]:!mt-0 [&>div>pre]:!rounded-t-none" />
   </div>
 </template>
