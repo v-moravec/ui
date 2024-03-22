@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ComponentWithProps from '~/components/ComponentWithProps.vue'
+import type { ComponentWithPropsProps } from '~/types/ui'
 
 const positionOptions = [
   { value: 'left', label: 'left' },
@@ -20,21 +20,24 @@ const preventCloseOptions = [
 ]
 const preventClose: Ref<{ value: boolean; label: string }> = ref({ value: false, label: 'false' })
 
-const props = ref({
+const props: Ref<ComponentWithPropsProps> = ref({
   componentName: 'UiSidebar',
   props: [
     {
       name: 'position',
+      type: 'option',
       value: position,
       options: positionOptions,
     },
     {
       name: 'show-overlay',
+      type: 'option',
       value: showOverlay,
       options: showOverlayOptions,
     },
     {
       name: 'prevent-close',
+      type: 'option',
       value: preventClose,
       options: preventCloseOptions,
     },
