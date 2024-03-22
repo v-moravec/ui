@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue'
 
-const [anchor, floating, floatingStyles] = useUiFloating({})
+const { anchor, floating, floatingStyles } = useUiFloating({})
 </script>
 
 <template>
   <div class="w-full max-w-sm">
     <Popover class="relative">
-      <PopoverButton ref="anchor" as="span">
+      <PopoverButton ref="anchor" as="button" class="flex outline-none">
         <slot name="activator">
           <UiButton size="md" type="primary">Open</UiButton>
         </slot>

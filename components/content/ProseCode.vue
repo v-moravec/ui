@@ -50,7 +50,7 @@ export default defineComponent({
     :class="`language-${language}`"
   >
     <button
-      class="absolute right-5 top-5 z-[1] rounded-lg bg-white px-2 py-1 text-black opacity-0 transition-opacity group-hover:opacity-100"
+      class="absolute right-2.5 top-2.5 z-[1] rounded-lg bg-white px-2 py-1 text-black opacity-0 transition-opacity group-hover:opacity-100"
       size="xs"
       tabindex="-1"
       @click="copy"

@@ -13,7 +13,7 @@ const props = withDefaults(
   }
 )
 
-const [anchor, tooltip, floatingStyles] = useUiFloating({})
+const { anchor, floating: tooltip, floatingStyles } = useUiFloating({})
 
 const open = ref(false)
 

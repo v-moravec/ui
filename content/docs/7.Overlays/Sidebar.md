@@ -11,7 +11,7 @@ name: SidebarExample
 
 ## Installation
 
-```
+```bash
 npx @v-moravec/ui add sidebar
 ```
 

@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import ComponentWithProps from '~/components/ComponentWithProps.vue'
+
 const positionOptions = [
   { value: 'left', label: 'left' },
   { value: 'right', label: 'right' },
@@ -11,26 +13,45 @@ const showOverlayOptions = [
   { value: false, label: 'false' },
 ]
 const showOverlay: Ref<{ value: boolean; label: string }> = ref({ value: true, label: 'true' })
+
+const preventCloseOptions = [
+  { value: true, label: 'true' },
+  { value: false, label: 'false' },
+]
+const preventClose: Ref<{ value: boolean; label: string }> = ref({ value: false, label: 'false' })
+
+const props = ref({
+  componentName: 'UiSidebar',
+  props: [
+    {
+      name: 'position',
+      value: position,
+      options: positionOptions,
+    },
+    {
+      name: 'show-overlay',
+      value: showOverlay,
+      options: showOverlayOptions,
+    },
+    {
+      name: 'prevent-close',
+      value: preventClose,
+      options: preventCloseOptions,
+    },
+  ],
+})
+
+const bindProps = computed(() => {
+  const arr = props.value.props.map((prop) => ({ [prop.name]: prop.value.value }))
+  return Object.assign({}, ...arr)
+})
 </script>
 
 <template>
   <div class="flex flex-col gap-2">
-    <UiCard class="flex flex-col gap-3 p-5 sm:min-w-64">
-      <UiCard>
-        <p class="font-mono text-xs">&lt;UiSidebar</p>
-        <div class="ml-4 flex items-baseline">
-          <p class="font-mono text-xs">:position="</p>
-          <UiSelect button-class="px-1 py-0.5" v-model="position" :options="positionOptions" />
-          <p class="text-sm">"</p>
-        </div>
-        <div class="ml-4 flex items-baseline">
-          <p class="font-mono text-xs">:show-overlay="</p>
-          <UiSelect button-class="px-1 py-0.5" v-model="showOverlay" :options="showOverlayOptions" />
-          <p class="text-sm">"</p>
-        </div>
-        <p class="font-mono text-xs">&gt;</p>
-      </UiCard>
-      <UiSidebar :position="position.value" :show-overlay="showOverlay.value">
+    <div class="flex flex-col gap-3 sm:min-w-64">
+      <ComponentWithProps componentName="UiSidebar" v-model="props" />
+      <UiSidebar v-bind="bindProps">
         <template #activator="{ open }">
           <UiButton size="sm" @click="open">Open sidebar</UiButton>
         </template>
@@ -42,6 +63,6 @@ const showOverlay: Ref<{ value: boolean; label: string }> = ref({ value: true, l
           </div>
         </template>
       </UiSidebar>
-    </UiCard>
+    </div>
   </div>
 </template>

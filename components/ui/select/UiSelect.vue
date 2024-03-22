@@ -11,7 +11,7 @@ const props = defineProps<{
 
 const selected = defineModel<{ label: string; value: any }>()
 
-const [anchor, floating, floatingStyles] = useUiFloating({ strategy: 'absolute' })
+const { anchor, floating, floatingStyles } = useUiFloating({ strategy: 'absolute' })
 </script>
 
 <template>
@@ -31,7 +31,7 @@ const [anchor, floating, floatingStyles] = useUiFloating({ strategy: 'absolute' 
         <span class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2"></span>
       </ListboxButton>
 
-      <div ref="floating" :style="floatingStyles" class="w-full z-10">
+      <div ref="floating" :style="floatingStyles" class="z-10 w-full">
         <transition
           leave-active-class="transition duration-100 ease-in"
           leave-from-class="opacity-100"
@@ -57,7 +57,7 @@ const [anchor, floating, floatingStyles] = useUiFloating({ strategy: 'absolute' 
                   cn(
                     [
                       active ? 'bg-primary text-primary-contrast' : 'bg-secondary text-secondary-contrast',
-                      'relative w-full text-left select-none p-2',
+                      'relative w-full select-none p-2 text-left',
                     ],
                     props.optionClass
                   )

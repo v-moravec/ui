@@ -5,11 +5,11 @@ export const useUiFloating = ({
   placement = 'bottom',
   offsetSize = 5,
   strategy = 'fixed',
-}: {
-  placement?: Placement
-  offsetSize?: number
-  strategy?: Strategy
-}) => {
+}: Partial<{
+  placement: Placement
+  offsetSize: number
+  strategy: Strategy
+}>) => {
   const anchor = ref<MaybeElement<HTMLElement>>(null)
   const floating = ref<MaybeElement<HTMLElement>>(null)
 
@@ -20,5 +20,5 @@ export const useUiFloating = ({
     middleware: [shift(), flip({ fallbackAxisSideDirection: 'end' }), offset(offsetSize)],
   })
 
-  return [anchor, floating, floatingStyles] as const
+  return { anchor, floating, floatingStyles } as const
 }

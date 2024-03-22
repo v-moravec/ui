@@ -4,6 +4,7 @@ import HtmlLang from 'shiki/langs/html.mjs'
 import MdcLang from 'shiki/langs/mdc.mjs'
 import VueLang from 'shiki/langs/vue.mjs'
 import YamlLang from 'shiki/langs/yaml.mjs'
+import BashLang from 'shiki/langs/bash.mjs'
 import PostcssLang from 'shiki/langs/postcss.mjs'
 import type { Highlighter } from '@nuxtjs/mdc/runtime/highlighter/types'
 
@@ -18,6 +19,7 @@ export const useShikiHighlighter = () => {
         html: HtmlLang,
         mdc: MdcLang,
         vue: VueLang,
+        bash: BashLang,
         yml: YamlLang,
         postcss: PostcssLang,
       },
