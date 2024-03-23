@@ -1,0 +1,46 @@
+<script setup lang="ts">
+import type { ComponentWithPropsProps } from '~/types/ui'
+
+const { addNotification } = useNotifications()
+
+const title = ref('Hello world!')
+const description = ref('This is a notification')
+const time = ref(2000)
+
+const props: Ref<ComponentWithPropsProps> = ref({
+  componentName: 'UiTooltip',
+  props: [
+    {
+      name: 'title',
+      type: 'string',
+      value: title,
+    },
+    {
+      name: 'time',
+      type: 'number',
+      value: time,
+    },
+    {
+      name: 'description',
+      type: 'string',
+      value: title,
+    },
+  ],
+})
+
+const bindProps = computed(() => {
+  const arr = props.value.props.map((prop) => ({ [prop.name]: prop.type === 'option' ? prop.value.value : prop.value }))
+  return Object.assign({}, ...arr)
+})
+</script>
+
+<template>
+  <div class="flex flex-col gap-2">
+    <div class="flex flex-col items-center gap-3 sm:min-w-64">
+      <ComponentWithProps componentName="UiSidebar" v-model="props" />
+      <UiButton class="justify-center text-sm" @click="addNotification({ title, description, time })">
+        Add notification
+      </UiButton>
+    </div>
+  </div>
+</template>

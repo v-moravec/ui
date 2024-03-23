@@ -5,15 +5,19 @@ const props = withDefaults(
   defineProps<{
     label: string
     placement?: Placement
-    offset?: number
+    offsetSize?: number
   }>(),
   {
     placement: 'bottom',
-    offset: 7,
+    offsetSize: 7,
   }
 )
 
-const { anchor, floating: tooltip, floatingStyles } = useUiFloating({})
+const {
+  anchor,
+  floating: tooltip,
+  floatingStyles,
+} = useUiFloating({ placement: props.placement, offsetSize: props.offsetSize })
 
 const open = ref(false)
 

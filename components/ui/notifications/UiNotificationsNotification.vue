@@ -10,7 +10,9 @@ const { removeNotification, notifications } = useNotifications()
 const interval = props.notification.time || 5000
 
 const { remaining, pause, resume } = useTimer(() => {
-  removeNotification(props.notification.id)
+  if (props.notification.time) {
+    removeNotification(props.notification.id)
+  }
 }, interval)
 </script>
 
@@ -33,6 +35,7 @@ const { remaining, pause, resume } = useTimer(() => {
       ></UiButton>
     </div>
     <span
+      v-if="props.notification.time"
       id="timeoutBar"
       :style="{ width: (remaining / interval) * 100 + '%' }"
       class="mt-2 block h-1 w-full rounded-full bg-primary"
