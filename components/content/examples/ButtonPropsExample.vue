@@ -3,27 +3,46 @@ import type { ComponentWithPropsProps } from '~/types/ui'
 
 const { addNotification } = useNotifications()
 
-const title = ref('Hello world!')
-const description = ref('This is a notification')
-const time = ref(2000)
+const sizeOptions = [
+  { value: 'sm', label: 'sm' },
+  { value: 'md', label: 'md' },
+  { value: 'lg', label: 'lg' },
+]
+const size: Ref<{ value: 'sm' | 'md' | 'lg'; label: string }> = ref({ value: 'md', label: 'md' })
+
+const typeOptions = [
+  { value: 'primary', label: 'primary' },
+  { value: 'secondary', label: 'secondary' },
+  { value: 'accent', label: 'accent' },
+]
+const type: Ref<{ value: string; label: string }> = ref({ value: 'primary', label: 'primary' })
+
+const outlineOptions = [
+  { value: true, label: 'true' },
+  { value: false, label: 'false' },
+]
+const outline: Ref<{ value: boolean; label: string }> = ref({ value: false, label: 'false' })
 
 const props: Ref<ComponentWithPropsProps> = ref({
   componentName: 'UiButton',
   props: [
     {
-      name: 'title',
-      type: 'string',
-      value: title,
+      name: 'type',
+      type: 'option',
+      value: type,
+      options: typeOptions,
     },
     {
-      name: 'time',
-      type: 'number',
-      value: time,
+      name: 'outline',
+      type: 'option',
+      value: outline,
+      options: outlineOptions,
     },
     {
-      name: 'description',
-      type: 'string',
-      value: description,
+      name: 'size',
+      type: 'option',
+      value: size,
+      options: sizeOptions,
     },
   ],
 })
@@ -38,7 +57,7 @@ const bindProps = computed(() => {
   <div class="flex flex-col gap-2">
     <div class="flex flex-col items-center gap-3 sm:min-w-64">
       <ComponentWithProps component-name="UiButton" v-model="props" />
-      <UiButton class="justify-center text-sm" @click="addNotification({ title, description, time })">
+      <UiButton v-bind="bindProps" @click="addNotification({ title: 'Surprise', time: 1000 })">
         Click me
       </UiButton>
     </div>
