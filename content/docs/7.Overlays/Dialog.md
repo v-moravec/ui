@@ -3,22 +3,12 @@ title: Dialog
 description:
 ---
 
-::preview-and-code
----
-name: DialogExample
----
-::
+:preview-and-code{name=DialogExample}
 
 ## Installation
 
-```bash
-npx @v-moravec/ui add dialog
-```
+:installation{name=dialog}
 
 ## Props
 
-::preview-and-code
----
-name: DialogPropsExample
----
-::
+:component-example{name=DialogPropsExample}

@@ -3,14 +3,8 @@ title: Input
 description: TODO
 ---
 
-## TODO
+:preview-and-code{name=UiInput}
 
-::preview-and-code
----
-name: UiInput
-props:
-  type: 'primary'
-  size: 'md'
----
-Button
-::
+## Installation
+
+:installation{name=input}

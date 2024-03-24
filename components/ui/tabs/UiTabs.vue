@@ -2,7 +2,7 @@
 import { TabGroup, TabList, Tab, TabPanels, TabPanel } from '@headlessui/vue'
 
 const props = defineProps<{
-  items: any[]
+  items: { label: string; slot: string; content?: string }[]
 }>()
 </script>
 

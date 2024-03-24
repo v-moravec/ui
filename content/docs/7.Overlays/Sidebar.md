@@ -3,22 +3,12 @@ title: Sidebar
 description:
 ---
 
-::preview-and-code
----
-name: SidebarExample
----
-::
+:preview-and-code{name=SidebarExample}
 
 ## Installation
 
-```bash
-npx @v-moravec/ui add sidebar
-```
+:installation{name=sidebar}
 
 ## Props
 
-::preview-and-code
----
-name: SidebarPropsExample
----
-::
+:component-example{name=SidebarPropsExample}

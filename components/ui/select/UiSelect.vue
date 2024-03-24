@@ -16,7 +16,7 @@ const { anchor, floating, floatingStyles } = useUiFloating({ strategy: 'absolute
 
 <template>
   <Listbox v-model="selected">
-    <div class="relative mt-1">
+    <div class="relative">
       <ListboxButton
         ref="anchor"
         :class="

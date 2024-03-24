@@ -3,23 +3,12 @@ title: Button
 description: Create interactive buttons in a user interface
 ---
 
-::preview-and-code
----
-name: ButtonExample
----
-::
+:preview-and-code{name=ButtonExample}
 
 ## Installation
 
-```bash
-npx @v-moravec/ui add button
-```
+:installation{name=button}
 
 ## Props
 
-::preview-and-code
----
-name: ButtonPropsExample
----
-::
-
+:component-example{name=ButtonPropsExample}

@@ -6,22 +6,12 @@ links:
     to: https://popper.js.org/
 ---
 
-::preview-and-code
----
-name: TooltipExample
----
-::
+:preview-and-code{name=TooltipExample}
 
 ## Installation
 
-```bash
-npx @v-moravec/ui add tooltip
-```
+:installation{name=tooltip}
 
 ## Props
 
-::preview-and-code
----
-name: TooltipPropsExample
----
-::
+:component-example{name=TooltipPropsExample}

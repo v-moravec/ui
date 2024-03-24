@@ -3,22 +3,12 @@ title: Notification
 description:
 ---
 
-::preview-and-code
----
-name: NotificationExample
----
-::
+:preview-and-code{name=NotificationExample}
 
 ## Installation
 
-```bash
-npx @v-moravec/ui add notifications
-```
+:installation{name=notifications}
 
 ## Props
 
-::preview-and-code
----
-name: NotificationPropsExample
----
-::
+:component-example{name=NotificationPropsExample}

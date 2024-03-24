@@ -8,13 +8,9 @@ links:
 
 ## TODO
 
-::preview-and-code
----
-name: UiSwitch
-props:
-  type: 'primary'
-  size: 'md'
----
-Button
-::
+:preview-and-code{name=UiSwitch}
+
+## Installation
+
+:installation{name=switch}
 

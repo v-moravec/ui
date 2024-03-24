@@ -6,9 +6,8 @@ links:
     to: https://www.embla-carousel.com/get-started/vue/
 ---
 
-::preview-and-code
----
-name: CarouselExample
-props: {}
----
-::
+:preview-and-code{name=CarouselExample}
+
+## Installation
+
+:installation{name=carousel}

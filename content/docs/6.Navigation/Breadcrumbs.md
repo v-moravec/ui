@@ -3,20 +3,8 @@ title: Breadcrumbs
 description: Display a navigation trail that shows the user's current location within a website or application
 ---
 
-## TODO
+:preview-and-code{name=BreadcrumbsExample}
 
-::component-example
----
-name: BreadcrumbsExample
----
-::
+## Installation
 
-::preview-and-code
----
-name: UiBreadcrumbs
-props:
-  type: 'primary'
-  size: 'md'
----
-Button
-::
+:installation{name=breadcrumbs}
