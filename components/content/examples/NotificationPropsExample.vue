@@ -5,7 +5,7 @@ const { addNotification } = useNotifications()
 
 const title = ref('Hello world!')
 const description = ref('This is a notification')
-const time = ref(2000)
+const time = ref(5000)
 
 const props: Ref<ComponentWithPropsProps> = ref({
   componentName: 'UiNotifications',
