@@ -48,7 +48,7 @@ const bindProps = computed(() => {
 <template>
   <div class="flex flex-col gap-2">
     <div class="flex flex-col items-center gap-3 sm:min-w-64">
-      <ComponentWithProps componentName="UiSidebar" v-model="props" />
+      <ComponentWithProps v-model="props" />
       <UiTooltip :key="offsetSize + placement.value" v-bind="bindProps">
         <UiButton>Hover me</UiButton>
       </UiTooltip>

@@ -8,7 +8,7 @@ const description = ref('This is a notification')
 const time = ref(2000)
 
 const props: Ref<ComponentWithPropsProps> = ref({
-  componentName: 'UiNotifications',
+  componentName: 'UiButton',
   props: [
     {
       name: 'title',
@@ -37,9 +37,9 @@ const bindProps = computed(() => {
 <template>
   <div class="flex flex-col gap-2">
     <div class="flex flex-col items-center gap-3 sm:min-w-64">
-      <ComponentWithProps v-model="props" />
+      <ComponentWithProps component-name="UiButton" v-model="props" />
       <UiButton class="justify-center text-sm" @click="addNotification({ title, description, time })">
-        Add notification
+        Click me
       </UiButton>
     </div>
   </div>

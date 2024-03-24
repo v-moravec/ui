@@ -53,7 +53,7 @@ const bindProps = computed(() => {
 <template>
   <div class="flex flex-col gap-2">
     <div class="flex flex-col gap-3 sm:min-w-64">
-      <ComponentWithProps componentName="UiSidebar" v-model="props" />
+      <ComponentWithProps v-model="props" />
       <UiSidebar v-bind="bindProps">
         <template #activator="{ open }">
           <UiButton size="sm" @click="open">Open sidebar</UiButton>

@@ -5,46 +5,21 @@ description: Create interactive buttons in a user interface
 
 ::preview-and-code
 ---
-name: UiButton
-props:
-  type: 'primary'
-  size: 'md'
+name: ButtonExample
 ---
-Button
 ::
 
-## Variants
+## Installation
 
+```bash
+npx @v-moravec/ui add button
+```
 
-::component-example
+## Props
+
+::preview-and-code
 ---
-name: UiButton
-props:
-  type: 'primary'
-  size: 'md'
+name: ButtonPropsExample
 ---
-
-Button
 ::
 
-::component-example
----
-name: UiButton
-props:
-  type: 'secondary'
-  size: 'md'
----
-
-Button
-::
-
-::component-example
----
-name: UiButton
-props:
-  type: 'accent'
-  size: 'md'
----
-
-Button
-::
