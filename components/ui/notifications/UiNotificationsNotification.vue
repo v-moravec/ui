@@ -18,7 +18,7 @@ const { remaining, pause, resume } = useTimer(() => {
 
 <template>
   <UiCard class="w-full p-3 sm:w-auto sm:min-w-72" @mouseover="pause()" @mouseleave="resume()">
-    <div class="flex justify-between items-center gap-4">
+    <div class="flex items-center justify-between gap-4">
       <div class="flex flex-col overflow-hidden">
         <p class="truncate font-semibold leading-tight">{{ props.notification.title }}</p>
         <p v-if="props.notification.description" class="text-current/60 truncate text-sm">
@@ -28,11 +28,12 @@ const { remaining, pause, resume } = useTimer(() => {
 
       <UiButton
         @click="removeNotification(props.notification.id)"
-        icon="fa6-solid:xmark"
         size="sm"
         class="flex h-max items-start justify-start p-1"
         type="accent"
-      ></UiButton>
+      >
+        <Icon name="fa6-solid:xmark" class="h-4 w-4" />
+      </UiButton>
     </div>
     <span
       v-if="props.notification.time"

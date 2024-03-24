@@ -2,8 +2,6 @@
 import type { HTMLAttributes } from 'vue'
 
 const props = defineProps<{
-  icon?: string
-  to?: string
   type?: 'primary' | 'secondary' | 'accent'
   outline?: boolean
   size?: 'sm' | 'md' | 'lg'
@@ -35,8 +33,6 @@ const cls = computed(
 
 <template>
   <button :class="cn(cls, props.class)">
-    <Icon v-if="props.icon" :name="props.icon" class="h-4 w-4" />
-
     <slot />
   </button>
 </template>

@@ -6,10 +6,22 @@ links:
     to: https://headlessui.com/vue/popover
 ---
 
-## TODO
-
 ::preview-and-code
 ---
 name: PopoverExample
+---
+::
+
+## Installation
+
+```bash
+npx @v-moravec/ui add popover
+```
+
+## Props
+
+::preview-and-code
+---
+name: PopoverPropsExample
 ---
 ::
