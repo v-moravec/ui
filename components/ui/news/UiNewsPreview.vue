@@ -26,7 +26,7 @@ const props = defineProps<NewsCardProps>()
         {{ truncate(props.content, 90) }}
       </UiTextNormal>
       <NuxtLink :to="props.link">
-        <UiButton class="w-full">Read more</UiButton>
+        <UiButton size="sm" class="w-full">Read more</UiButton>
       </NuxtLink>
     </div>
   </UiCard>
