@@ -3,7 +3,6 @@ import { transformContent } from '@nuxt/content/transformers'
 
 const props = defineProps<{
   name: string
-  props: Record<string, unknown>
   class?: string
 }>()
 
@@ -30,6 +29,6 @@ const { data: ast } = await useAsyncData(`content-example-${props.name}-ast`, ()
 
 <template>
   <div class="my-4" v-if="hasCode">
-    <ContentRenderer :value="ast" class="[&>div>pre]:!mt-0 [&>div>pre]:!rounded-t-none" />
+    <ContentRenderer :value="ast" class="[&>div>pre]:!mt-0 [&>div>pre]:overflow-auto [&>div>pre]:!rounded-t-none" />
   </div>
 </template>

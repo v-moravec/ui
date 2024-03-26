@@ -65,7 +65,7 @@ const docsLinks = [
     label: 'Docs',
   },
   {
-    to: '/blocks/getting-started/introduction',
+    to: '/blocks',
     label: 'Blocks',
   },
   {

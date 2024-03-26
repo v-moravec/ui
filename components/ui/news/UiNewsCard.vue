@@ -12,7 +12,7 @@ const props = defineProps<NewsCardProps>()
 
 <template>
   <UiCard as="article" class="w-full max-w-sm overflow-hidden p-0">
-    <img class="aspect-square object-cover" :src="props.image" />
+    <img width="384" height="384" class="aspect-[3/2] object-cover" :src="props.image" />
     <div class="flex flex-col gap-4 p-6">
       <div>
         <UiTextTitle>

@@ -7,8 +7,15 @@ const props = defineProps<{
 </script>
 
 <template>
-  <UiCard class="not-prose my-4 flex items-center justify-center rounded-lg border @container sm:p-20">
-    <component :is="name" v-bind="props.props" :class="props.class">
+  <UiCard
+    :class="
+      cn(
+        'not-prose my-4 flex items-center justify-center rounded-lg border text-black @container dark:text-primary sm:p-20',
+        props.class
+      )
+    "
+  >
+    <component :is="name" v-bind="props.props">
       <ContentSlot v-if="$slots.default" :use="$slots.default" />
     </component>
   </UiCard>

@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 const props = defineProps<{
   name: string
-  props: { [key: string]: any }
 }>()
 </script>
 
@@ -14,12 +13,12 @@ const props = defineProps<{
       ]"
     >
       <template #preview>
-        <ComponentExample :props="props.props" :name="name">
+        <ComponentExample :name="name">
           <slot />
         </ComponentExample>
       </template>
       <template #code>
-        <ComponentCode :props="props.props" :name="name" />
+        <ComponentCode :name="name" />
       </template>
     </UiTabs>
   </div>

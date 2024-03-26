@@ -1,17 +1,11 @@
 <script lang="ts" setup>
-const props = withDefaults(
-  defineProps<{
-    class?: HTMLAttributes['class']
-    as?: keyof HTMLElementTagNameMap
-  }>(),
-  {
-    as: 'div',
-  }
-)
+const props = defineProps<{
+  class?: HTMLAttributes['class']
+}>()
 </script>
 
 <template>
-  <as :class="cn('rounded-lg border border-border bg-background p-6', props.class)">
+  <div :class="cn('rounded-lg border border-border bg-background p-6', props.class)">
     <slot />
-  </as>
+  </div>
 </template>

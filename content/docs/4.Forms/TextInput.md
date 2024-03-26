@@ -1,5 +1,5 @@
 ---
-title: Input
+title: Text input
 description: TODO
 ---
 
