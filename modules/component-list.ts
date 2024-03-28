@@ -47,9 +47,28 @@ export default defineNuxtModule({
       }
       const code = await fsp.readFile(component.shortPath, 'utf-8')
 
+      const script = code.match(/<script[^]*?<\/script>/ms)?.[0]
       const template = code.match(/<template[^]*?<\/template>/ms)?.[0]
 
-      const dependencies = template
+      const dependencies = script
+        ? script
+            .match(/import[^]*?from[^]*?['"]([^'"]+)['"]/gm)
+            ?.map((dependency) => {
+              return dependency.split('from')[1].trim().replace(/['";]/g, '')
+            })
+            .filter((v) => !v.startsWith('.') && !v.startsWith('~') && v !== 'vue' && v !== 'nuxt')
+        : undefined
+
+      const composableDependencies = script
+        ? script
+            .match(/use[a-zA-z]*?\(/gm)
+            ?.map((dependency) => {
+              return dependency.trim().replace(/['"();]/g, '')
+            })
+            .filter((v) => !v.startsWith('.') && !v.startsWith('~') && v !== 'vue' && v !== 'nuxt')
+        : undefined
+
+      const uiDependencies = template
         ? removeDuplicates(
             template.match(/<Ui[^>]+>/gm)?.map((v) =>
               v
@@ -64,7 +83,9 @@ export default defineNuxtModule({
 
       components[component.pascalName] = {
         code,
-        dependencies: dependencies,
+        uiDependencies,
+        dependencies,
+        composableDependencies,
         shortPath: component.shortPath,
         pascalName: component.pascalName,
       }
