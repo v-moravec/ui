@@ -5,4 +5,4 @@ description:
 
 ## Simple
 
-:preview-and-code{name=UiHeroSimple}
+:preview-and-code{name=BlockHeroSimple}

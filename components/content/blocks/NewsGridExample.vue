@@ -68,5 +68,5 @@ const news = [
 </script>
 
 <template>
-  <UiNewsGrid :news="news" />
+  <BlockNewsGrid :news="news" />
 </template>

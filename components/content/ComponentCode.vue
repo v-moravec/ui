@@ -6,7 +6,7 @@ const props = defineProps<{
   class?: string
 }>()
 
-const data = await fetchContentExampleCode(props.name)
+const data = await fetchCodeExample(props.name)
 
 const hasCode = computed(() => data?.code)
 

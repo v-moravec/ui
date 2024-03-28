@@ -14,11 +14,30 @@
         </template>
         <template #preview>
           <div class="my-2 @container">
-            <UiHeroSimple class="mx-auto flex items-center justify-center rounded-lg border @7xl:aspect-[16/9]" />
+            <BlockHeroSimple class="mx-auto flex items-center justify-center rounded-lg border @7xl:aspect-[16/9]" />
           </div>
         </template>
         <template #code>
-          <ComponentCode name="UiHeroSimple" />
+          <ComponentCode name="BlockHeroSimple" />
+        </template>
+      </UiTabs>
+    </div><div>
+      <UiTabs
+        :items="[
+          { label: 'Preview', slot: 'preview' },
+          { label: 'Code', slot: 'code' },
+        ]"
+      >
+        <template #bar>
+          <UiTextTitle class="text-xl">Image</UiTextTitle>
+        </template>
+        <template #preview>
+          <div class="my-2 @container">
+            <BlockHeroImage class="mx-auto flex items-center justify-center rounded-lg border @7xl:aspect-[16/9]" />
+          </div>
+        </template>
+        <template #code>
+          <ComponentCode name="BlockHeroImage" />
         </template>
       </UiTabs>
     </div>

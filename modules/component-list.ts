@@ -6,19 +6,26 @@ import fsp from 'fs/promises'
 
 export default defineNuxtModule({
   meta: {
-    name: 'content-examples-code',
+    name: 'component-list',
   },
   async setup(_options, nuxt) {
     const resolver = createResolver(import.meta.url)
     let _configResolved: any
     let components: Record<string, any>
-    const outputPath = join(nuxt.options.buildDir, 'content-examples-code')
+    const outputPath = join(nuxt.options.buildDir, 'component-list')
 
     async function stubOutput() {
       if (existsSync(outputPath + '.mjs')) {
         return
       }
       await updateOutput('export default {}')
+    }
+
+    function removeDuplicates(arr?: string[]) {
+      if (!arr) {
+        return undefined
+      }
+      return arr.filter((v, i) => arr.indexOf(v) === i)
     }
 
     async function fetchComponent(component: string | any) {
@@ -35,13 +42,30 @@ export default defineNuxtModule({
         }
       }
 
-      if (!component?.filePath || !component?.pascalName) {
+      if (!component?.shortPath || !component?.pascalName) {
         return
       }
-      const code = await fsp.readFile(component.filePath, 'utf-8')
+      const code = await fsp.readFile(component.shortPath, 'utf-8')
+
+      const template = code.match(/<template[^]*?<\/template>/ms)?.[0]
+
+      const dependencies = template
+        ? removeDuplicates(
+            template.match(/<Ui[^>]+>/gm)?.map((v) =>
+              v
+                .slice(1, -1)
+                .split(' ')[0]
+                .trim()
+                .split(/(?=[A-Z])/)[1]
+                .toLowerCase()
+            )
+          )
+        : undefined
+
       components[component.pascalName] = {
         code,
-        filePath: component.filePath,
+        dependencies: dependencies,
+        shortPath: component.shortPath,
         pascalName: component.pascalName,
       }
     }
@@ -62,16 +86,22 @@ export default defineNuxtModule({
 
     async function fetchComponents() {
       await Promise.all(Object.keys(components).map(fetchComponent))
+
+      const acc: Record<string, any> = {}
+      Object.values(components).forEach((component) => {
+        const name = component.pascalName.split(/(?=[A-Z])/)[1].toLowerCase()
+        if (acc[name]) {
+          acc[name].push(component)
+        } else {
+          acc[name] = [component]
+        }
+      })
+      components = acc
     }
 
     nuxt.hook('components:extend', async (_components) => {
       components = _components
-        .filter(
-          (v) =>
-            v.shortPath.includes('components/content/examples/') ||
-            v.shortPath.includes('components/ui/') ||
-            v.shortPath.includes('components/content/blocks')
-        )
+        .filter((v) => v.shortPath.includes('components/ui/'))
         .reduce((acc, component) => {
           acc[component.pascalName] = component
           return acc
@@ -80,7 +110,7 @@ export default defineNuxtModule({
     })
 
     addTemplate({
-      filename: 'content-examples-code.mjs',
+      filename: 'component-list.mjs',
       getContents: () => 'export default {}',
       write: true,
     })
@@ -88,7 +118,7 @@ export default defineNuxtModule({
     nuxt.hook('vite:extend', (vite: any) => {
       vite.config.plugins = vite.config.plugins || []
       vite.config.plugins.push({
-        name: 'content-examples-code',
+        name: 'component-list',
         enforce: 'post',
         async buildStart() {
           if (_configResolved?.build.ssr) {
@@ -111,14 +141,14 @@ export default defineNuxtModule({
 
     nuxt.hook('nitro:config', (nitroConfig) => {
       nitroConfig.virtual = nitroConfig.virtual || {}
-      nitroConfig.virtual['#content-examples-code/nitro'] = () =>
-        readFileSync(join(nuxt.options.buildDir, '/content-examples-code.mjs'), 'utf-8')
+      nitroConfig.virtual['#component-list/nitro'] = () =>
+        readFileSync(join(nuxt.options.buildDir, '/component-list.mjs'), 'utf-8')
     })
 
     addServerHandler({
       method: 'get',
-      route: '/api/content-examples-code/:component?',
-      handler: resolver.resolve('../server/api/content-examples-code.get'),
+      route: '/api/component-list/:component?',
+      handler: resolver.resolve('../server/api/component-list.get'),
     })
   },
 })
