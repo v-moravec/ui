@@ -20,7 +20,7 @@ export default defineNuxtConfig({
     },
   },
   css: ['~/assets/css/themes.css'],
-  modules: ['@nuxt/content', '@nuxtjs/tailwindcss', 'nuxt-icon', '@nuxtjs/color-mode', 'nuxt-icon', '@nuxtjs/seo'],
+  modules: ['@nuxt/content', '@nuxtjs/tailwindcss', 'nuxt-icon', '@nuxtjs/color-mode', '@nuxtjs/seo', 'nuxt-shiki'],
   content: {
     highlight: {
       theme: {
@@ -28,13 +28,17 @@ export default defineNuxtConfig({
         dark: 'aurora-x',
         light: 'aurora-x',
       },
-      langs: ['vue'],
+      langs: ['vue', 'bash'],
     },
     experimental: {
       search: {
         indexed: true,
       },
     },
+  },
+  shiki: {
+    defaultTheme: "aurora-x",
+    bundledLangs: ['vue', 'bash', 'javascript', 'typescript', 'json', 'css', 'html']
   },
   colorMode: {
     preference: 'light',

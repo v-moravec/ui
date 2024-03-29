@@ -10,7 +10,7 @@ const data = await fetchCodeExample(props.name)
 
 const hasCode = computed(() => data?.code)
 
-const highlighter = useShikiHighlighter()
+const highlighter = await loadShiki()
 const { data: ast } = await useAsyncData(`content-example-${props.name}-ast`, () =>
   transformContent('content:_markdown.md', `\`\`\`vue\n${data?.code ?? ''}\n\`\`\``, {
     markdown: {

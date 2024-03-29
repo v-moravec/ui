@@ -5,7 +5,7 @@ const props = defineProps<{
   name: string
 }>()
 
-const highlighter = useShikiHighlighter()
+const highlighter = await loadShiki()
 const { data: ast } = await useAsyncData(`content-example-${props.name}-ast`, () =>
   transformContent('content:_markdown.md', `\`\`\`bash\n${`npx @v-moravec/ui add ${props.name}`}\n\`\`\``, {
     markdown: {
