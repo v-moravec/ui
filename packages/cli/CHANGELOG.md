@@ -1,5 +1,11 @@
 # @v-moravec/ui
 
+## 0.0.5
+
+### Patch Changes
+
+- Do not publish source.
+
 ## 0.0.4
 
 ### Patch Changes
