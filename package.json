@@ -15,6 +15,8 @@
     "prettier": "prettier --check .",
     "lint": "pnpm --filter @v-moravec/ui lint",
     "build:cli": "pnpm --filter @v-moravec/ui build",
+    "start:cli": "cd packages/cli && pnpm start",
+    "dev:cli": "pnpm --filter @v-moravec/ui dev",
     "release": "changeset version",
     "pub:release": "pnpm build:cli && changeset publish"
   },

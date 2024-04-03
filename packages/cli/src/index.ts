@@ -2,9 +2,12 @@
 import { Command } from 'commander'
 
 import { add } from '~/src/commands/add'
+import { checkNuxtProject } from '~/src/utils/checkNuxtProject'
 
 process.on('SIGINT', () => process.exit(0))
 process.on('SIGTERM', () => process.exit(0))
+
+await checkNuxtProject()
 
 const program = new Command()
   .name('@v-moravec/ui')

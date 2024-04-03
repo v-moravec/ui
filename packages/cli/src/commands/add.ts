@@ -111,11 +111,6 @@ export const add = new Command()
           initial: 0,
         })
 
-        if (!response.value) {
-          consola.warn(`No version of ${component} block selected`)
-          return
-        }
-
         const block = blocks.data[component][response.value]
 
         const path = './' + block.shortPath.split('/').slice(0, -1).join('/')
