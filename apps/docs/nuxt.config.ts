@@ -15,7 +15,7 @@ export default defineNuxtConfig({
   },
   nitro: {
     prerender: {
-      routes: ['/api/search.json'],
+      routes: ['/api/search.json', '/api/component-list', '/api/block-list'],
       autoSubfolderIndex: false,
     },
   },
@@ -37,8 +37,8 @@ export default defineNuxtConfig({
     },
   },
   shiki: {
-    defaultTheme: "aurora-x",
-    bundledLangs: ['vue', 'bash', 'javascript', 'typescript', 'json', 'css', 'html']
+    defaultTheme: 'aurora-x',
+    bundledLangs: ['vue', 'bash', 'javascript', 'typescript', 'json', 'css', 'html'],
   },
   colorMode: {
     preference: 'light',

@@ -1,0 +1,30 @@
+{
+  "name": "cli",
+  "type": "module",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "cli": "./dist/index.js"
+  },
+  "scripts": {
+    "dev": "tsup --watch",
+    "build": "tsup",
+    "start": "node ./dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "dependencies": {
+    "@types/prompts": "^2.4.9",
+    "commander": "^12.0.0",
+    "consola": "^3.2.3",
+    "ora": "^8.0.1",
+    "prompts": "^2.4.2",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.30",
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.3"
+  }
+}

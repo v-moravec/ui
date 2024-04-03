@@ -10,6 +10,7 @@ dist
 .unlighthouse
 .vscode
 .idea
+.wrangler
 
 logs
 *.log
