@@ -3,14 +3,15 @@
   "type": "module",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
-  "bin": {
-    "cli": "./dist/index.js"
-  },
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": "dist/index.js",
   "scripts": {
     "dev": "tsup --watch",
-    "build": "tsup",
-    "start": "node ./dist/index.js"
+    "build": "tsup --format cjs,esm --dts",
+    "start": "node dist/index.js",
+    "lint": "tsc"
   },
   "keywords": [],
   "author": "",

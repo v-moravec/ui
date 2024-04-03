@@ -5,6 +5,7 @@ import { consola } from 'consola'
 import { existsSync, promises as fs } from 'fs'
 import propmts from 'prompts'
 import { BASE_URL } from '~/src/constants'
+import ora from 'ora'
 
 function handleError(error: string | Error | ZodError) {
   if (typeof error === 'string') {
@@ -49,6 +50,7 @@ export const add = new Command()
   .argument('[componentsAndBlocks...]', 'components and blocks to add')
   .action(async (componentsAndBlocks, opts) => {
     const options = addSchema.safeParse({ componentsAndBlocks })
+    const spinner = ora('Loading components and blocks')
 
     if (!options.success) {
       return handleError(options.error)
@@ -58,8 +60,10 @@ export const add = new Command()
       return handleError('No components or blocks provided')
     }
 
+    spinner.start()
     const components = componentsAndBlocksSchema.safeParse(await (await fetch(BASE_URL + '/component-list')).json())
     const blocks = componentsAndBlocksSchema.safeParse(await (await fetch(BASE_URL + '/block-list')).json())
+    spinner.succeed('Components and blocks loaded')
 
     if (!components.success) {
       return handleError(components.error)
@@ -106,6 +110,11 @@ export const add = new Command()
           choices: availableVersions.map((v, index) => ({ title: v, value: index })),
           initial: 0,
         })
+
+        if (!response.value) {
+          consola.warn(`No version of ${component} block selected`)
+          return
+        }
 
         const block = blocks.data[component][response.value]
 
