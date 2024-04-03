@@ -3,7 +3,7 @@ import { z } from 'zod'
 import { ZodError } from 'zod'
 import { consola } from 'consola'
 import { existsSync, promises as fs } from 'fs'
-import propmts from 'prompts'
+import prompts from 'prompts'
 import { BASE_URL } from '~/src/constants'
 import ora from 'ora'
 
@@ -86,7 +86,7 @@ export const add = new Command()
           }
 
           if (existsSync('./' + c.shortPath)) {
-            const response = await propmts({
+            const response = await prompts({
               type: 'confirm',
               name: 'value',
               message: `Component ${c.pascalName} already exists. Would you like to overwrite it?`,
@@ -103,7 +103,7 @@ export const add = new Command()
       } else if (blocks.data[component]) {
         const availableVersions = blocks.data[component].map((b) => b.pascalName)
 
-        const response = await propmts({
+        const response = await prompts({
           type: 'select',
           name: 'value',
           message: `Choose a version of block ${component}`,
@@ -124,7 +124,7 @@ export const add = new Command()
         }
 
         if (existsSync('./' + block.shortPath)) {
-          const response = await propmts({
+          const response = await prompts({
             type: 'confirm',
             name: 'value',
             message: `Block ${block.pascalName} already exists. Would you like to overwrite it?`,
