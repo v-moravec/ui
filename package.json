@@ -13,8 +13,8 @@
     "start": "pnpm --filter docs start",
     "start:debug": "pnpm --filter docs start:debug",
     "prettier": "prettier --check .",
-    "lint": "pnpm --filter cli lint",
-    "build:cli": "pnpm --filter cli build",
+    "lint": "pnpm --filter @v-moravec/ui lint",
+    "build:cli": "pnpm --filter @v-moravec/ui build",
     "release": "changeset version",
     "pub:release": "pnpm build:cli && changeset publish"
   },
