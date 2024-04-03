@@ -12,8 +12,10 @@
     "start": "pnpm --filter docs start",
     "start:debug": "pnpm --filter docs start:debug",
     "prettier": "prettier --check .",
+    "lint": "pnpm --filter cli lint",
+    "build:cli": "pnpm --filter cli build",
     "release": "changeset version",
-    "pub:release": "pnpm build && changeset publish"
+    "pub:release": "pnpm build:cli && changeset publish"
   },
   "dependencies": {
     "@changesets/cli": "^2.27.1"

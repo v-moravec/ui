@@ -1,4 +1,4 @@
-# cli
+# @v-moravec/ui
 
 ## 0.0.1
 
