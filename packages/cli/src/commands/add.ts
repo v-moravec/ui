@@ -1,33 +1,13 @@
 import { Command } from 'commander'
 import { z } from 'zod'
-import { ZodError } from 'zod'
 import { consola } from 'consola'
 import { existsSync, promises as fs } from 'fs'
 import prompts from 'prompts'
 import { BASE_URL } from '~/src/constants'
 import ora from 'ora'
-
-function handleError(error: string | Error | ZodError) {
-  if (typeof error === 'string') {
-    consola.error(error)
-    process.exit(1)
-  }
-
-  if (error instanceof ZodError) {
-    error.errors.forEach((e) => {
-      consola.error(e.message)
-    })
-    process.exit(1)
-  }
-
-  if (error instanceof Error) {
-    consola.error(error.message)
-    process.exit(1)
-  }
-
-  consola.error('Something went wrong. Please try again.')
-  process.exit(1)
-}
+import { handleError } from '~/src/utils/handleError'
+import { installDependencies } from '~/src/utils/installDependencies'
+import { removeDuplicates } from '~/src/utils/removeDuplicates'
 
 const addSchema = z.object({
   componentsAndBlocks: z.array(z.string()),
@@ -35,14 +15,47 @@ const addSchema = z.object({
 
 const componentAndBlockSchema = z.object({
   code: z.string(),
-  uiDependencies: z.string().optional().array().optional(),
-  dependencies: z.string().optional().array().optional(),
-  composableDependencies: z.string().optional().array().optional(),
+  uiDependencies: z.string().array().optional(),
+  dependencies: z.string().array().optional(),
+  composableDependencies: z.string().array().optional(),
   shortPath: z.string(),
   pascalName: z.string(),
 })
 
+const composableSchema = z.object({
+  code: z.string(),
+  dependencies: z.string().array().optional(),
+  shortPath: z.string(),
+})
+
 const componentsAndBlocksSchema = z.record(z.string(), z.array(componentAndBlockSchema))
+const composablesSchema = z.record(z.string(), composableSchema)
+
+async function addComponent(shortPath: string, code: string) {
+  if (existsSync('./' + shortPath)) {
+    return
+  }
+
+  const path = './' + shortPath.split('/').slice(0, -1).join('/')
+  if (!existsSync(path)) {
+    await fs.mkdir(path, { recursive: true })
+  }
+
+  await fs.writeFile('./' + shortPath, code)
+}
+
+async function addComposable(shortPath: string, code: string) {
+  if (existsSync('./' + shortPath)) {
+    return
+  }
+
+  const path = './' + shortPath.split('/').slice(0, -1).join('/')
+  if (!existsSync(path)) {
+    await fs.mkdir(path, { recursive: true })
+  }
+
+  await fs.writeFile('./' + shortPath, code)
+}
 
 export const add = new Command()
   .name('add')
@@ -63,6 +76,7 @@ export const add = new Command()
     spinner.start()
     const components = componentsAndBlocksSchema.safeParse(await (await fetch(BASE_URL + '/component-list')).json())
     const blocks = componentsAndBlocksSchema.safeParse(await (await fetch(BASE_URL + '/block-list')).json())
+    const composables = composablesSchema.safeParse(await (await fetch(BASE_URL + '/composable-list')).json())
     spinner.succeed('Components and blocks loaded')
 
     if (!components.success) {
@@ -71,6 +85,13 @@ export const add = new Command()
     if (!blocks.success) {
       return handleError(blocks.error)
     }
+    if (!composables.success) {
+      return handleError(composables.error)
+    }
+
+    const dependencies: string[] = []
+    const composableDependencies: string[] = []
+    const uiDependencies: string[] = []
 
     for (const component of options.data.componentsAndBlocks) {
       if (!components.data[component] && !blocks.data[component]) {
@@ -96,6 +117,16 @@ export const add = new Command()
             if (!response.value) {
               continue
             }
+          }
+
+          if (c.dependencies) {
+            dependencies.push(...c.dependencies)
+          }
+          if (c.uiDependencies) {
+            uiDependencies.push(...c.uiDependencies)
+          }
+          if (c.composableDependencies) {
+            composableDependencies.push(...c.composableDependencies)
           }
 
           await fs.writeFile('./' + c.shortPath, c.code)
@@ -131,7 +162,56 @@ export const add = new Command()
           }
         }
 
+        if (block.dependencies) {
+          dependencies.push(...block.dependencies)
+        }
+        if (block.uiDependencies) {
+          uiDependencies.push(...block.uiDependencies)
+        }
+        if (block.composableDependencies) {
+          composableDependencies.push(...block.composableDependencies)
+        }
+
         await fs.writeFile('./' + block.shortPath, block.code)
       }
+    }
+
+    if (uiDependencies.length) {
+      for (const uiDependency of removeDuplicates(uiDependencies)) {
+        if (components.data[uiDependency]) {
+          for (const c of components.data[uiDependency]) {
+            await addComponent(c.shortPath, c.code)
+
+            if (c.dependencies) {
+              dependencies.push(...c.dependencies)
+            }
+            if (c.composableDependencies) {
+              composableDependencies.push(...c.composableDependencies)
+            }
+            // TODO: Shouldn't this be recursive? -> one dependency can have another dependencies
+          }
+        }
+      }
+    }
+
+    if (composableDependencies.length) {
+      for (const composableDependency of removeDuplicates(composableDependencies)) {
+        if (composables.data[composableDependency]) {
+          await addComposable(
+            composables.data[composableDependency].shortPath,
+            composables.data[composableDependency].code
+          )
+
+          const deps = composables.data[composableDependency].dependencies
+
+          if (deps) {
+            dependencies.push(...deps)
+          }
+        }
+      }
+    }
+
+    if (dependencies.length) {
+      await installDependencies(removeDuplicates(dependencies))
     }
   })

@@ -11,8 +11,15 @@ export default defineNuxtModule({
   async setup(_options, nuxt) {
     const resolver = createResolver(import.meta.url)
     let _configResolved: any
-    let composables: { code: string; dependencies: string[] | undefined; shortPath: string }[] = []
+    let composables: Record<string, { code: string; dependencies: string[] | undefined; shortPath: string }> = {}
     const outputPath = join(nuxt.options.buildDir, 'composable-list')
+
+    function removeDuplicates(arr?: string[]) {
+      if (!arr) {
+        return undefined
+      }
+      return arr.filter((v, i) => arr.indexOf(v) === i)
+    }
 
     async function getDependencies() {
       const files = await fsp.readdir('composables')
@@ -29,11 +36,11 @@ export default defineNuxtModule({
               .filter((v) => !v.startsWith('.') && !v.startsWith('~') && v !== 'vue' && v !== 'nuxt')
           : undefined
 
-        composables.push({
+        composables[file.split('.')[0]] = {
           code,
-          dependencies,
+          dependencies: removeDuplicates(dependencies),
           shortPath: 'composables/' + file,
-        })
+        }
       }
     }
 

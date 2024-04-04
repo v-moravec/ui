@@ -11,8 +11,15 @@ export default defineNuxtModule({
   async setup(_options, nuxt) {
     const resolver = createResolver(import.meta.url)
     let _configResolved: any
-    let dependencies: { code: string; shortPath: string }[] = []
+    let initFiles: { code: string; dependencies: string[] | undefined; shortPath: string }[] = []
     const outputPath = join(nuxt.options.buildDir, 'init-list')
+
+    function removeDuplicates(arr?: string[]) {
+      if (!arr) {
+        return undefined
+      }
+      return arr.filter((v, i) => arr.indexOf(v) === i)
+    }
 
     async function getDependencies() {
       const paths = ['utils/cn.ts', 'tailwind.config.ts', 'assets/css/tailwind.css', 'assets/css/themes.css']
@@ -20,14 +27,24 @@ export default defineNuxtModule({
       for (const path of paths) {
         const code = await fsp.readFile(path, 'utf-8')
 
-        dependencies.push({
+        const dependencies = code
+          ? code
+              .match(/import[^]*?from[^]*?['"]([^'"]+)['"]/gm)
+              ?.map((dependency) => {
+                return dependency.split('from')[1].trim().replace(/['";]/g, '')
+              })
+              .filter((v) => !v.startsWith('.') && !v.startsWith('~') && v !== 'vue' && v !== 'nuxt')
+          : undefined
+
+        initFiles.push({
           code,
+          dependencies: removeDuplicates(dependencies),
           shortPath: path,
         })
       }
     }
 
-    const getStringifiedComponents = () => JSON.stringify(dependencies, null, 2)
+    const getStringifiedComponents = () => JSON.stringify(initFiles, null, 2)
 
     const getVirtualModuleContent = () => `export default ${getStringifiedComponents()}`
 

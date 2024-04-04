@@ -51,23 +51,26 @@ export default defineNuxtModule({
       const template = code.match(/<template[^]*?<\/template>/ms)?.[0]
 
       const dependencies = script
-        ? script
-            .match(/import[^]*?from[^]*?['"]([^'"]+)['"]/gm)
-            ?.map((dependency) => {
-              return dependency.split('from')[1].trim().replace(/['";]/g, '')
-            })
-            .filter((v) => !v.startsWith('.') && !v.startsWith('~') && v !== 'vue' && v !== 'nuxt')
+        ? removeDuplicates(
+            script
+              .match(/import[^]*?from[^]*?['"]([^'"]+)['"]/gm)
+              ?.map((dependency) => {
+                return dependency.split('from')[1].trim().replace(/['";]/g, '')
+              })
+              .filter((v) => !v.startsWith('.') && !v.startsWith('~') && v !== 'vue' && v !== 'nuxt')
+          )
         : undefined
 
-
       const composableDependencies = script
-      ? script
-          .match(/use[a-zA-z]*?\(/gm)
-          ?.map((dependency) => {
-            return dependency.trim().replace(/['"();]/g, '')
-          })
-          .filter((v) => !v.startsWith('.') && !v.startsWith('~') && v !== 'vue' && v !== 'nuxt')
-      : undefined
+        ? removeDuplicates(
+            script
+              .match(/use[a-zA-z]*?\(/gm)
+              ?.map((dependency) => {
+                return dependency.trim().replace(/['"();]/g, '')
+              })
+              .filter((v) => !v.startsWith('.') && !v.startsWith('~') && v !== 'vue' && v !== 'nuxt')
+          )
+        : undefined
 
       const uiDependencies = template
         ? removeDuplicates(

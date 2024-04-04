@@ -1,5 +1,11 @@
 # @v-moravec/ui
 
+## 0.1.0
+
+### Minor Changes
+
+- Add init command. Install dependencies when adding components and blocks.
+
 ## 0.0.5
 
 ### Patch Changes
