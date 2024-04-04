@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { useProvideCarousel } from './useCarousel'
 import type { UiCarouselEmits, UiCarouselProps, WithClassAsProps } from './interface'
 
 const props = withDefaults(defineProps<UiCarouselProps & WithClassAsProps>(), {

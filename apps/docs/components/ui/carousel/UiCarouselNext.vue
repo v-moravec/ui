@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { useCarousel } from './useCarousel'
 import type { WithClassAsProps } from './interface'
 
 const props = defineProps<WithClassAsProps>()

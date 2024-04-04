@@ -15,7 +15,7 @@ export default defineNuxtConfig({
   },
   nitro: {
     prerender: {
-      routes: ['/api/search.json', '/api/component-list', '/api/block-list'],
+      routes: ['/api/search.json', '/api/component-list', '/api/block-list', '/api/composable-list', '/api/init-list'],
       autoSubfolderIndex: false,
     },
   },
