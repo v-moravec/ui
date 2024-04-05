@@ -1,5 +1,11 @@
 # @v-moravec/ui
 
+## 0.1.1
+
+### Patch Changes
+
+- Fix live url.
+
 ## 0.1.0
 
 ### Minor Changes
