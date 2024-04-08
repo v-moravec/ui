@@ -60,8 +60,8 @@ function onLeave(el: HTMLElement, done: () => void) {
       @click="closeOthers(index)"
       class="flex w-full items-center justify-between gap-2 rounded-lg px-4 py-2 text-left hover:bg-secondary hover:text-secondary-contrast focus:outline-none focus-visible:ring focus-visible:ring-primary focus-visible:ring-opacity-75"
     >
-      <span class="text-lg">{{ item.label }}</span>
-      <Icon name="fa6-solid:chevron-down" :class="open ? 'rotate-180 transform' : ''" class="size-4" />
+      <span class="">{{ item.label }}</span>
+      <Icon name="fa6-solid:chevron-down" :class="open ? 'rotate-180 transform' : ''" class="size-3" />
     </DisclosureButton>
 
     <Transition
