@@ -2,6 +2,7 @@
 import type { ComponentWithPropsProps } from '~/types/ui'
 
 const initials: Ref<string> = ref('VM')
+const imageUrl: Ref<string> = ref('https://avatars.githubusercontent.com/u/61109712?v=4')
 
 const props: Ref<ComponentWithPropsProps> = ref({
   componentName: 'UiAvatar',
@@ -10,6 +11,11 @@ const props: Ref<ComponentWithPropsProps> = ref({
       name: 'initials',
       type: 'string',
       value: initials,
+    },
+    {
+      name: 'imageUrl',
+      type: 'string',
+      value: imageUrl,
     },
   ],
 })

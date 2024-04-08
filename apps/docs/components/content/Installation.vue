@@ -25,13 +25,12 @@ const { data: ast } = await useAsyncData(`content-example-${props.name}-ast`, ()
 <template>
   <UiTabs
     :items="[
-      { label: 'Manual', slot: 'manual' },
       { label: 'CLI', slot: 'cli' },
+      { label: 'Manual', slot: 'manual' },
     ]"
   >
     <template #cli>
       <div class="my-4">
-        <UiBadge class="mb-2 block w-fit">Coming soon</UiBadge>
         <ContentRenderer :value="ast" class="[&>div>pre]:!mt-0 [&>div>pre]:!rounded-t-none" />
       </div>
     </template>

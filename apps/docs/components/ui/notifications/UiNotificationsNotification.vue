@@ -5,15 +5,27 @@ const props = defineProps<{
   notification: Notification
 }>()
 
-const { removeNotification, notifications } = useNotifications()
+const { removeNotification } = useNotifications()
 
 const interval = props.notification.time || 5000
 
-const { remaining, pause, resume } = useTimer(() => {
-  if (props.notification.time) {
+let remaining: ComputedRef<number>
+let pause: () => void
+let resume: () => void
+
+if (props.notification.time) {
+  const {
+    remaining: r,
+    pause: p,
+    resume: rs,
+  } = useTimer(() => {
     removeNotification(props.notification.id)
-  }
-}, interval)
+  }, interval)
+
+  remaining = r
+  pause = p
+  resume = rs
+}
 </script>
 
 <template>
@@ -36,9 +48,9 @@ const { remaining, pause, resume } = useTimer(() => {
       </UiButton>
     </div>
     <span
-      v-if="props.notification.time"
+      v-if="props.notification.time || props.notification.color"
       id="timeoutBar"
-      :style="{ width: (remaining / interval) * 100 + '%' }"
+      :style="{ width: (remaining / interval) * 100 + '%', backgroundColor: props.notification.color }"
       class="mt-2 block h-1 w-full rounded-full bg-primary"
     ></span>
   </UiCard>

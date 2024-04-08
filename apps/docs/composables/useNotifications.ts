@@ -3,6 +3,7 @@ export type Notification = {
   title: string
   description?: string
   time?: number
+  color?: 'red' | 'orange' | '#2c2'
 }
 
 export function useNotifications() {

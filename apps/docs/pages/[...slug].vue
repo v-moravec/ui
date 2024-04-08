@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { withoutTrailingSlash } from 'ufo'
+
 const route = useRoute()
 
 const { data: page } = await useAsyncData(route.path, () => queryContent(route.path).findOne())
@@ -24,6 +26,20 @@ const tocLinks = page.value.body?.toc?.links ?? []
 
 const links = page.value.links ?? []
 
+// https://github.com/nuxt/ui/blob/dev/docs/pages/%5B...slug%5D.vue#L53-L66
+
+const { data: surround } = await useAsyncData(`${route.path}-surround`, () => {
+  return queryContent()
+    .where({
+      _extension: 'md',
+      navigation: {
+        $ne: false,
+      },
+    })
+    .only(['title', 'description', '_path'])
+    .findSurround(withoutTrailingSlash(route.path))
+})
+
 definePageMeta({
   layout: 'docs',
 })
@@ -35,6 +51,43 @@ definePageMeta({
       <div class="mx-auto w-full max-w-3xl xl:col-span-8">
         <PageHeader :title="page?.title" :description="page?.description" :links="links" />
         <ContentRenderer v-if="page?.body" :value="page" class="prose prose-neutral max-w-3xl dark:prose-invert" />
+        <hr class="my-10" />
+        <div v-if="surround" class="flex items-stretch justify-between gap-5">
+          <div class="max-w-xs">
+            <NuxtLink v-if="surround[0] && surround[0]._path" :to="{ path: surround[0]._path }">
+              <UiCard class="flex h-full items-center gap-4 p-4">
+                <span class="flex size-fit rounded bg-primary p-2 text-primary-contrast">
+                  <Icon name="fa6-solid:arrow-left" />
+                </span>
+                <div class="flex flex-col gap-0.5">
+                  <p class="font-medium">
+                    {{ surround[0].title }}
+                  </p>
+                  <p class="text-sm">
+                    {{ surround[0].description }}
+                  </p>
+                </div>
+              </UiCard>
+            </NuxtLink>
+          </div>
+          <div class="max-w-xs">
+            <NuxtLink v-if="surround[1] && surround[1]._path" :to="{ path: surround[1]._path }">
+              <UiCard class="flex h-full items-center gap-4 p-4">
+                <div class="flex flex-col gap-0.5">
+                  <p class="font-medium">
+                    {{ surround[1].title }}
+                  </p>
+                  <p class="text-sm">
+                    {{ surround[1].description }}
+                  </p>
+                </div>
+                <span class="flex size-fit rounded bg-primary p-2 text-primary-contrast">
+                  <Icon name="fa6-solid:arrow-right" />
+                </span>
+              </UiCard>
+            </NuxtLink>
+          </div>
+        </div>
       </div>
       <div class="hidden lg:col-span-2 xl:block">
         <div class="top-24 flex flex-col lg:sticky">

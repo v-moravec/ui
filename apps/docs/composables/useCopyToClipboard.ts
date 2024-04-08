@@ -20,13 +20,14 @@ export function useCopyToClipboard(options: Partial<Notification> = {}) {
           return
         }
 
-        addNotification({ ...success, ...options })
+        addNotification({ ...success, ...options, time: 2000 })
       },
       function (e) {
         addNotification({
           ...failure,
           description: failure.description || e.message,
           ...options,
+          time: 2000,
         })
       }
     )
