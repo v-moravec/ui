@@ -30,9 +30,7 @@
             aria-label="Home"
             :to="{ path: '/' }"
           >
-            <Logo class="h-[17.8px]" />
-            <span class="hidden lg:block">v-moravec/ui</span>
-            <UiBadge class="-translate-x-1 -translate-y-2 scale-75">alpha</UiBadge>
+            <FullLogo />
           </NuxtLink>
           <div class="hidden items-center gap-2 md:flex">
             <NuxtLink v-for="link in docsLinks" :to="link.to">
