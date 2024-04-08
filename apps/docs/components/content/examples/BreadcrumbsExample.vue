@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const items = [{ label: 'Home', to: '/' }, { label: 'Breadcrumbs', to: '/docs/navigation/breadcrumbs' }]
+const items = [{ label: 'Home', to: '/' }, { label: 'Breadcrumbs', to: '/docs/components/breadcrumbs' }]
 </script>
 
 <template>
