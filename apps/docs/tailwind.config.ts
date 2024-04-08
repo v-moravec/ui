@@ -1,6 +1,7 @@
 import type { Config } from 'tailwindcss'
 import typography from '@tailwindcss/typography'
 import containerQueries from '@tailwindcss/container-queries'
+import {} from '@nuxtjs/tailwindcss' // TODO: Remove (quick fix for initial dependency install using CLI)
 
 export default <Partial<Config>>{
   darkMode: 'class',
