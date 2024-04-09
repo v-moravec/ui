@@ -14,7 +14,7 @@
         </template>
         <template #preview>
           <div class="my-2 @container">
-            <BlockHeroSimple class="mx-auto flex items-center justify-center rounded-lg border @7xl:aspect-[16/9]" />
+            <BlockHeroSimple class="mx-auto flex items-center justify-center rounded-lg border border-border @7xl:aspect-[16/9]" />
           </div>
         </template>
         <template #code>
@@ -33,7 +33,7 @@
         </template>
         <template #preview>
           <div class="my-2 @container">
-            <BlockHeroImage class="mx-auto flex items-center justify-center rounded-lg border @7xl:aspect-[16/9]" />
+            <BlockHeroImage class="mx-auto flex items-center justify-center rounded-lg border border-border @7xl:aspect-[16/9]" />
           </div>
         </template>
         <template #code>

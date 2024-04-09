@@ -6,8 +6,7 @@ links:
     to: https://headlessui.com/vue/tabs
 ---
 
-:component-example{name=TabsExample}
-
+:preview-and-code{name=TabsExample}
 
 ## Installation
 

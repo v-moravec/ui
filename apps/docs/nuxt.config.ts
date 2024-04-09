@@ -24,11 +24,11 @@ export default defineNuxtConfig({
   content: {
     highlight: {
       theme: {
-        default: 'aurora-x',
-        dark: 'aurora-x',
-        light: 'aurora-x',
+        default: 'poimandres',
+        dark: 'poimandres',
+        light: 'poimandres',
       },
-      langs: ['vue', 'bash'],
+      langs: ['vue', 'bash', 'typescript'],
     },
     experimental: {
       search: {
@@ -37,7 +37,7 @@ export default defineNuxtConfig({
     },
   },
   shiki: {
-    defaultTheme: 'aurora-x',
+    defaultTheme: 'poimandres',
     bundledLangs: ['vue', 'bash', 'javascript', 'typescript', 'json', 'css', 'html'],
   },
   colorMode: {

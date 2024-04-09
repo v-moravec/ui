@@ -24,7 +24,7 @@ pnpm add @nuxtjs/icon -D
 
 Then add it to `modules` in `nuxt.config.ts`.
 
-```ts
+```typescript
 export default defineNuxtConfig({
   modules: ['nuxt-icon']
 })

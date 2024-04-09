@@ -12,9 +12,9 @@ const { data: ast } = await useAsyncData(`content-example-${props.name}-ast`, ()
       highlight: {
         highlighter,
         theme: {
-          light: 'aurora-x',
-          default: 'aurora-x',
-          dark: 'aurora-x',
+          light: 'poimandres',
+          default: 'poimandres',
+          dark: 'poimandres',
         },
       },
     },

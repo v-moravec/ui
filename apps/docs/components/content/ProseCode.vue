@@ -46,7 +46,7 @@ export default defineComponent({
 
 <template>
   <div
-    class="scroll group relative overflow-clip rounded-lg bg-[var(--tw-prose-pre-bg)] dark:border dark:border-neutral-700"
+    class="scroll group relative overflow-clip rounded-lg bg-[rgb(27,30,40)] dark:border dark:border-neutral-700"
     :class="`language-${language}`"
   >
     <button
@@ -61,7 +61,6 @@ export default defineComponent({
     <span v-if="filename" class="absolute bottom-8 right-5 text-sm text-white transition-opacity group-hover:opacity-0">
       {{ filename }}
     </span>
-
     <slot />
   </div>
 </template>
@@ -73,6 +72,6 @@ pre code .line {
 }
 
 pre {
-  @apply !my-0 max-h-[600px] rounded-lg !bg-black !p-4 text-sm dark:!bg-black;
+  @apply !my-0 max-h-[600px] rounded-lg !bg-[rgb(19,19,19)] !p-4 text-sm;
 }
 </style>
