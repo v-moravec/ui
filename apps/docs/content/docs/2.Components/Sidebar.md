@@ -1,6 +1,9 @@
 ---
 title: Sidebar
 description:
+links:
+  - name: HeadlessUI docs
+    to: https://headlessui.com/vue/dialog
 ---
 
 :preview-and-code{name=SidebarExample}

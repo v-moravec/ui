@@ -2,7 +2,7 @@
 title: Carousel
 description:
 links:
-  - name: API Reference
+  - name: Embla Carousel docs
     to: https://www.embla-carousel.com/get-started/vue/
 ---
 

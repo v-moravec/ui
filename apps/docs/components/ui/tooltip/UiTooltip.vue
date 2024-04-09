@@ -33,7 +33,7 @@ function onMouseLeave() {
 <template>
   <div>
     <div ref="anchor" class="w-fit" @mouseenter="onMouseEnter" @mouseleave="onMouseLeave">
-      <slot name="activator">
+      <slot>
         <UiButton>Hover me</UiButton>
       </slot>
     </div>

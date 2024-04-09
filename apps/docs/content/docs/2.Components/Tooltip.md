@@ -2,8 +2,8 @@
 title: Tooltip
 description:
 links:
-  - name: API Reference
-    to: https://popper.js.org/
+  - name: Floating UI docs
+    to: https://floating-ui.com/docs/getting-started
 ---
 
 :preview-and-code{name=TooltipExample}

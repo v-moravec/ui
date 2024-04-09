@@ -2,7 +2,7 @@
 title: Switch
 description: Enable users to select or deselect a single option from a set of choices
 links:
-  - name: API Reference
+  - name: HeadlessUI docs
     to: https://headlessui.com/vue/switch
 ---
 

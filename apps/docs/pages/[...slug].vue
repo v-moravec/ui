@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { withoutTrailingSlash } from 'ufo'
+import { onKeyStroke } from '@vueuse/core'
 
 const route = useRoute()
 
@@ -40,6 +41,20 @@ const { data: surround } = await useAsyncData(`${route.path}-surround`, () => {
     .findSurround(withoutTrailingSlash(route.path))
 })
 
+onKeyStroke('ArrowLeft', (e) => {
+  e.preventDefault()
+  if (surround.value && surround.value[0] && surround.value[0]._path) {
+    navigateTo(surround.value[0]._path)
+  }
+})
+
+onKeyStroke('ArrowRight', (e) => {
+  e.preventDefault()
+  if (surround.value && surround.value[1] && surround.value[1]._path) {
+    navigateTo(surround.value[1]._path)
+  }
+})
+
 definePageMeta({
   layout: 'docs',
 })
@@ -54,38 +69,42 @@ definePageMeta({
         <hr class="my-10" />
         <div v-if="surround" class="flex items-stretch justify-between gap-5">
           <div class="max-w-xs">
-            <NuxtLink v-if="surround[0] && surround[0]._path" :to="{ path: surround[0]._path }">
-              <UiCard class="flex h-full items-center gap-4 p-4">
-                <span class="flex size-fit rounded bg-primary p-2 text-primary-contrast">
-                  <Icon name="fa6-solid:arrow-left" />
-                </span>
-                <div class="flex flex-col gap-0.5">
-                  <p class="font-medium">
-                    {{ surround[0].title }}
-                  </p>
-                  <p class="text-sm">
-                    {{ surround[0].description }}
-                  </p>
-                </div>
-              </UiCard>
-            </NuxtLink>
+            <UiTooltip v-if="surround[0] && surround[0]._path" placement="top" :offset-size="10" label="You can use arrows to navigate">
+              <NuxtLink :to="{ path: surround[0]._path }">
+                <UiCard class="flex h-full items-center gap-4 p-4">
+                  <span class="flex size-fit rounded bg-primary p-2 text-primary-contrast">
+                    <Icon name="fa6-solid:arrow-left" />
+                  </span>
+                  <div class="flex flex-col gap-0.5">
+                    <p class="font-medium">
+                      {{ surround[0].title }}
+                    </p>
+                    <p class="text-sm">
+                      {{ surround[0].description }}
+                    </p>
+                  </div>
+                </UiCard>
+              </NuxtLink>
+            </UiTooltip>
           </div>
           <div class="max-w-xs">
-            <NuxtLink v-if="surround[1] && surround[1]._path" :to="{ path: surround[1]._path }">
-              <UiCard class="flex h-full items-center gap-4 p-4">
-                <div class="flex flex-col gap-0.5">
-                  <p class="font-medium">
-                    {{ surround[1].title }}
-                  </p>
-                  <p class="text-sm">
-                    {{ surround[1].description }}
-                  </p>
-                </div>
-                <span class="flex size-fit rounded bg-primary p-2 text-primary-contrast">
-                  <Icon name="fa6-solid:arrow-right" />
-                </span>
-              </UiCard>
-            </NuxtLink>
+            <UiTooltip v-if="surround[1] && surround[1]._path" placement="top" :offset-size="10" label="You can use arrows to navigate">
+              <NuxtLink :to="{ path: surround[1]._path }">
+                <UiCard class="flex h-full items-center gap-4 p-4">
+                  <div class="flex flex-col gap-0.5">
+                    <p class="font-medium">
+                      {{ surround[1].title }}
+                    </p>
+                    <p class="text-sm">
+                      {{ surround[1].description }}
+                    </p>
+                  </div>
+                  <span class="flex size-fit rounded bg-primary p-2 text-primary-contrast">
+                    <Icon name="fa6-solid:arrow-right" />
+                  </span>
+                </UiCard>
+              </NuxtLink>
+            </UiTooltip>
           </div>
         </div>
       </div>

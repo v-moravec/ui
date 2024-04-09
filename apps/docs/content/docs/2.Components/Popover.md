@@ -2,7 +2,7 @@
 title: Popover
 description:
 links:
-  - name: API Reference
+  - name: HeadlessUI docs
     to: https://headlessui.com/vue/popover
 ---
 
