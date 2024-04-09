@@ -67,7 +67,7 @@ definePageMeta({
         <PageHeader :title="page?.title" :description="page?.description" :links="links" />
         <ContentRenderer v-if="page?.body" :value="page" class="prose prose-neutral max-w-3xl dark:prose-invert" />
         <hr class="my-10" />
-        <div v-if="surround" class="flex items-stretch justify-between gap-5">
+        <div v-if="surround" class="flex justify-between gap-5">
           <div class="max-w-xs">
             <UiTooltip v-if="surround[0] && surround[0]._path" placement="top" :offset-size="10" label="You can use arrows to navigate">
               <NuxtLink :to="{ path: surround[0]._path }">
