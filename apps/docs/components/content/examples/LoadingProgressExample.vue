@@ -1,8 +1,15 @@
 <script setup lang="ts">
 const interval = 2500
-const { remaining, start } = useTimer(() => {
-  start()
-}, interval)
+
+let remaining = ref(interval)
+
+onMounted(() => {
+  const { remaining: r, start } = useTimer(() => {
+    start()
+  }, interval)
+
+  remaining = r
+})
 </script>
 
 <template>
