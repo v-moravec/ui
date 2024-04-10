@@ -69,9 +69,10 @@ export default defineComponent({
 pre code .line {
   display: block;
   min-height: 1rem;
+  white-space: pre-wrap;
 }
 
 pre {
-  @apply !my-0 max-h-[600px] rounded-lg !bg-[rgb(19,19,19)] !p-4 text-sm;
+  @apply !my-0 rounded-lg !bg-[rgb(19,19,19)] !p-4 text-sm;
 }
 </style>
