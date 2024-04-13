@@ -3,4 +3,8 @@ title: Table
 description: Display tabular data in a structured format
 ---
 
-## TODO
+:preview-and-code{name=TableExample}
+
+## Installation
+
+:installation{name=table}

@@ -18,8 +18,8 @@ const props = withDefaults(
 
 <template>
   <div class="grid grid-cols-1 gap-4 @xl:grid-cols-2 @4xl:grid-cols-3 @4xl:gap-8">
-    <FeatureCard />
-    <FeatureCard />
-    <FeatureCard />
+    <BlockFeatureCard />
+    <BlockFeatureCard />
+    <BlockFeatureCard />
   </div>
 </template>

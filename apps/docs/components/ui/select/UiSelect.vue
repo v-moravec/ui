@@ -11,6 +11,8 @@ const props = defineProps<{
 
 const selected = defineModel<{ label: string; value: any }>()
 
+selected.value = props.options[0]
+
 const { anchor, floating, floatingStyles } = useUiFloating({ strategy: 'absolute' })
 </script>
 
@@ -32,42 +34,47 @@ const { anchor, floating, floatingStyles } = useUiFloating({ strategy: 'absolute
       </ListboxButton>
 
       <div ref="floating" :style="floatingStyles" class="z-10 w-full">
-        <transition
-          leave-active-class="transition duration-100 ease-in"
-          leave-from-class="opacity-100"
-          leave-to-class="opacity-0"
-        >
-          <ListboxOptions
-            :class="
-              cn(
-                'mt-1 max-h-60 w-full min-w-fit overflow-auto rounded-md bg-secondary text-base ring-1 ring-black/5 focus:outline-none sm:text-sm',
-                props.optionsClass
-              )
-            "
+        <div class="w-fit overflow-clip rounded">
+          <transition
+            enterActiveClass="motion-safe:transition duration-300"
+            enterFromClass="opacity-0 translate-y-1"
+            enterToClass="opacity-100 translate-y-0"
+            leaveActiveClass="motion-safe:transition duration-200"
+            leaveFromClass="opacity-100 translate-y-0"
+            leaveToClass="opacity-0 translate-y-1"
           >
-            <ListboxOption
-              v-slot="{ active, selected }"
-              v-for="option in props.options"
-              :key="option.label"
-              :value="option"
-              as="template"
+            <ListboxOptions
+              :class="
+                cn(
+                  'mt-1 max-h-60 w-full min-w-fit overflow-auto rounded-md bg-secondary text-base ring-1 ring-black/5 focus:outline-none sm:text-sm',
+                  props.optionsClass
+                )
+              "
             >
-              <button
-                :class="
-                  cn(
-                    [
-                      active ? 'bg-primary text-primary-contrast' : 'bg-secondary text-secondary-contrast',
-                      'relative w-full select-none p-2 text-left',
-                    ],
-                    props.optionClass
-                  )
-                "
+              <ListboxOption
+                v-slot="{ active, selected }"
+                v-for="option in props.options"
+                :key="option.label"
+                :value="option"
+                as="template"
               >
-                <span :class="[selected ? 'font-medium' : 'font-normal', 'block truncate']">{{ option.label }}</span>
-              </button>
-            </ListboxOption>
-          </ListboxOptions>
-        </transition>
+                <button
+                  :class="
+                    cn(
+                      [
+                        active ? 'bg-primary text-primary-contrast' : 'bg-secondary text-secondary-contrast',
+                        'relative w-full select-none p-2 text-left',
+                      ],
+                      props.optionClass
+                    )
+                  "
+                >
+                  <span :class="[selected ? 'font-medium' : 'font-normal', 'block truncate']">{{ option.label }}</span>
+                </button>
+              </ListboxOption>
+            </ListboxOptions>
+          </transition>
+        </div>
       </div>
     </div>
   </Listbox>

@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="relative overflow-hidden">
+  <div class="relative w-full overflow-hidden">
     <div
       class="relative z-20 mx-auto flex min-h-[calc(100svh-64px)] max-w-7xl flex-col justify-center px-4 py-10 sm:py-0"
     >

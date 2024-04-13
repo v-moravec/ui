@@ -53,7 +53,7 @@ watch(
 </script>
 
 <template>
-  <div class="flex gap-2">
+  <div class="flex flex-wrap gap-2">
     <UiButton size="sm" @click="previousPage" :disabled="currentPage === 1">
       <Icon name="fa6-solid:chevron-left" />
     </UiButton>

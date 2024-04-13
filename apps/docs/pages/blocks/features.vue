@@ -6,7 +6,7 @@
       <UiTextTitle>Card</UiTextTitle>
       <div class="my-2 @container">
         <UiCard class="flex items-center justify-center">
-          <FeatureCard />
+          <BlockFeatureCard />
         </UiCard>
       </div>
     </section>
@@ -14,7 +14,7 @@
       <UiTextTitle>Grid</UiTextTitle>
       <div class="my-2 @container">
         <UiCard class="flex items-center justify-center">
-          <FeatureGrid />
+          <BlockFeatureGrid />
         </UiCard>
       </div>
     </section>
