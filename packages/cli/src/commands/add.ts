@@ -176,21 +176,36 @@ export const add = new Command()
       }
     }
 
+    async function addUiDependency(uiDependency: string) {
+      if (!components.success) return
+
+      if (components.data[uiDependency]) {
+        for (const c of components.data[uiDependency]) {
+          if (existsSync('./' + c.shortPath)) {
+            continue
+          }
+
+          await addComponent(c.shortPath, c.code)
+
+          if (c.uiDependencies) {
+            for (const uiDependency of c.uiDependencies) {
+              await addUiDependency(uiDependency)
+            }
+          }
+          if (c.dependencies) {
+            dependencies.push(...c.dependencies)
+          }
+          if (c.composableDependencies) {
+            composableDependencies.push(...c.composableDependencies)
+          }
+          // TODO: Shouldn't this be recursive? -> one dependency can have another dependencies
+        }
+      }
+    }
+
     if (uiDependencies.length) {
       for (const uiDependency of removeDuplicates(uiDependencies)) {
-        if (components.data[uiDependency]) {
-          for (const c of components.data[uiDependency]) {
-            await addComponent(c.shortPath, c.code)
-
-            if (c.dependencies) {
-              dependencies.push(...c.dependencies)
-            }
-            if (c.composableDependencies) {
-              composableDependencies.push(...c.composableDependencies)
-            }
-            // TODO: Shouldn't this be recursive? -> one dependency can have another dependencies
-          }
-        }
+        await addUiDependency(uiDependency)
       }
     }
 
