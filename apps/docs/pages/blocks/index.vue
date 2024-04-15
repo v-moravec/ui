@@ -1,6 +1,11 @@
 <script setup lang="ts">
 import BlocksPreviewHero from '~/components/blocks/preview/hero.vue'
 import BlocksPreviewPlaceholder from '~/components/blocks/preview/placeholder.vue'
+import BlocksPreviewBlog from '~/components/blocks/preview/blog.vue'
+import BlocksPreviewSection from '~/components/blocks/preview/section.vue'
+import BlocksPreviewReferences from '~/components/blocks/preview/references.vue'
+import BlocksPreviewFeatures from '~/components/blocks/preview/features.vue'
+import BlocksPreviewAuth from '~/components/blocks/preview/auth.vue'
 
 const categories = [
   {
@@ -12,19 +17,19 @@ const categories = [
         component: BlocksPreviewHero,
       },
       {
-        title: 'Sections',
-        to: '/blocks/auth',
-        component: BlocksPreviewPlaceholder,
+        title: 'Section',
+        to: '/blocks/section',
+        component: BlocksPreviewSection,
       },
       {
         title: 'Features',
         to: '/blocks/features',
-        component: BlocksPreviewPlaceholder,
+        component: BlocksPreviewFeatures,
       },
       {
         title: 'References',
-        to: '/blocks/auth',
-        component: BlocksPreviewPlaceholder,
+        to: '/blocks/references',
+        component: BlocksPreviewReferences,
       },
       {
         title: 'About',
@@ -41,21 +46,21 @@ const categories = [
         to: '/blocks/auth',
         component: BlocksPreviewPlaceholder,
       },
-      {
-        title: 'Auth',
-        to: '/blocks/auth',
-        component: BlocksPreviewPlaceholder,
-      },
-      {
-        title: 'Blog',
-        to: '/blocks/blog',
-        component: BlocksPreviewPlaceholder,
-      },
     ],
   },
   {
     title: 'General',
     items: [
+      {
+        title: 'Auth',
+        to: '/blocks/auth',
+        component: BlocksPreviewAuth,
+      },
+      {
+        title: 'Blog',
+        to: '/blocks/blog',
+        component: BlocksPreviewBlog,
+      },
       {
         title: 'Header',
         to: '/blocks',
@@ -79,9 +84,9 @@ const categories = [
     </UiTextHeading>
     <section v-for="category in categories" class="my-5">
       <UiTextSectionHeading>{{ category.title }}</UiTextSectionHeading>
-      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
-        <NuxtLink v-for="item in category.items" class="flex flex-col gap-2" :to="item.to">
-          <component :is="item.component" class="aspect-[9/14] md:aspect-[16/9]" />
+      <div class="grid grid-cols-1 items-stretch gap-8 md:grid-cols-2 2xl:grid-cols-3 2xl:gap-12">
+        <NuxtLink v-for="item in category.items" class="flex h-full flex-col gap-2" :to="item.to">
+          <component :is="item.component" class="aspect-[16/9] h-full" />
           <UiTextTitle>{{ item.title }}</UiTextTitle>
         </NuxtLink>
       </div>

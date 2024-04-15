@@ -66,10 +66,10 @@ const docsLinks = [
     to: '/blocks',
     label: 'Blocks',
   },
-  {
-    to: '/theming',
-    label: 'Theming',
-  },
+  // {
+  //   to: '/theming',
+  //   label: 'Theming',
+  // },
 ]
 
 const links = [

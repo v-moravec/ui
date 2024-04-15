@@ -7,30 +7,34 @@ const props = withDefaults(
     reversed?: boolean
   }>(),
   {
-    title: 'Static Typing',
-    description:
-      'TypeScript introduces static typing, allowing developers to specify the type of variables, function parameters, and return types. This helps catch type-related errors early in the development process.',
-    orientation: 'vertical',
     reversed: false,
   }
 )
 </script>
 
 <template>
-  <UiCard :class="cn('relative max-w-xs', props.reversed ? 'mb-8 pb-12' : 'mt-8 pt-12', props.class)">
-    <div class="flex flex-col gap-2">
-      <UiTextTitle>
+  <UiCard
+    :class="
+      cn(
+        'relative p-10 hover:bg-secondary hover:text-secondary-contrast',
+        props.reversed ? 'mb-8 pb-12' : 'mt-8 pt-12',
+        props.class
+      )
+    "
+  >
+    <div class="flex flex-col gap-4">
+      <UiTextTitle class="text-center text-3xl">
         {{ props.title }}
       </UiTextTitle>
-      <UiTextNormal>
+      <UiTextNormal class="max-w-sm">
         {{ props.description }}
       </UiTextNormal>
     </div>
     <div
-      class="absolute left-1/2 flex size-16 -translate-x-1/2 items-center justify-center rounded-lg bg-primary p-4 text-primary-contrast"
+      class="absolute left-1/2 flex size-16 -translate-x-1/2 items-center justify-center rounded-lg bg-primary p-3 text-primary-contrast"
       :class="props.reversed ? '-bottom-8' : '-top-8'"
     >
-      <Icon name="mdi:language-typescript" class="h-full w-full" />
+      <Icon name="fa6-solid:palette" class="h-full w-full" />
     </div>
   </UiCard>
 </template>

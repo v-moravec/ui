@@ -14,7 +14,7 @@ function handleError() {
 
 <template>
   <NuxtLayout>
-    <div class="overflow-hidden">
+    <div class="w-full overflow-hidden">
       <div class="z-20 mx-auto flex min-h-[calc(100svh-64px)] max-w-7xl flex-col justify-center px-4 py-10 sm:py-0">
         <div class="z-10 mx-auto flex max-w-3xl flex-col justify-center">
           <div class="max-w-[725px] text-center">

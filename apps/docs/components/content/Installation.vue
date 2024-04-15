@@ -1,9 +1,15 @@
 <script lang="ts" setup>
 import { transformContent } from '@nuxt/content/transformers'
 
-const props = defineProps<{
-  name: string
-}>()
+const props = withDefaults(
+  defineProps<{
+    name: string
+    type?: 'component' | 'block'
+  }>(),
+  {
+    type: 'component',
+  }
+)
 
 const highlighter = await loadShiki()
 const { data: ast } = await useAsyncData(`content-example-${props.name}-ast`, () =>
@@ -40,13 +46,15 @@ const { data: ast } = await useAsyncData(`content-example-${props.name}-ast`, ()
         <NuxtLink
           target="_blank"
           external
-          :to="`https://github.com/v-moravec/ui/tree/main/components/ui/${props.name}`"
+          :to="`https://github.com/v-moravec/ui/tree/main/apps/docs/components/${type === 'component' ? 'ui' : 'block'}/${props.name}`"
           class="text-primary-500 inline-block underline"
         >
           contents from folder on Github
         </NuxtLink>
         to
-        <span class="font-mono text-sm font-bold">{{ `~/components/ui/${props.name}/` }}</span>
+        <span class="font-mono text-sm font-bold">
+          {{ `~/components/${type === 'component' ? 'ui' : 'block'}/${props.name}/` }}
+        </span>
         folder in your Nuxt project.
       </UiCard>
     </template>

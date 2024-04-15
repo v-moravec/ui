@@ -2,11 +2,13 @@
 
 <template>
   <main class="container mx-auto px-4 py-10">
+    <UiTextHeading>Features</UiTextHeading>
+    <Installation name="feature" type="block"></Installation>
     <section class="my-4">
       <UiTextTitle>Card</UiTextTitle>
       <div class="my-2 @container">
         <UiCard class="flex items-center justify-center">
-          <BlockFeatureCard />
+          <FeatureExample />
         </UiCard>
       </div>
     </section>
@@ -14,7 +16,7 @@
       <UiTextTitle>Grid</UiTextTitle>
       <div class="my-2 @container">
         <UiCard class="flex items-center justify-center">
-          <BlockFeatureGrid />
+          <FeatureGridExample />
         </UiCard>
       </div>
     </section>
