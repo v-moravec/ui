@@ -1,12 +1,10 @@
 ---
 title: Switch
-description: Enable users to select or deselect a single option from a set of choices
+description:
 links:
   - name: HeadlessUI docs
     to: https://headlessui.com/vue/switch
 ---
-
-## TODO
 
 :preview-and-code{name=UiSwitch}
 

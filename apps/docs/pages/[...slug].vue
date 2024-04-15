@@ -62,14 +62,19 @@ definePageMeta({
 
 <template>
   <main class="w-full">
-    <div class="flex max-w-5xl py-4 lg:gap-8 lg:py-8">
-      <div class="mx-auto w-full max-w-3xl xl:col-span-8">
+    <div class="mx-auto flex max-w-5xl py-4 lg:gap-8 lg:py-8">
+      <div class="w-full max-w-3xl xl:col-span-8">
         <PageHeader :title="page?.title" :description="page?.description" :links="links" />
         <ContentRenderer v-if="page?.body" :value="page" class="prose prose-neutral max-w-3xl dark:prose-invert" />
         <hr class="my-10" />
         <div v-if="surround" class="flex justify-between gap-5">
           <div class="max-w-xs">
-            <UiTooltip v-if="surround[0] && surround[0]._path" placement="top" :offset-size="10" label="You can use arrows to navigate">
+            <UiTooltip
+              v-if="surround[0] && surround[0]._path"
+              placement="top"
+              :offset-size="10"
+              label="You can use arrows to navigate"
+            >
               <NuxtLink :to="{ path: surround[0]._path }">
                 <UiCard class="flex h-full items-center gap-4 p-4">
                   <span class="flex size-fit rounded bg-primary p-2 text-primary-contrast">
@@ -88,7 +93,12 @@ definePageMeta({
             </UiTooltip>
           </div>
           <div class="max-w-xs">
-            <UiTooltip v-if="surround[1] && surround[1]._path" placement="top" :offset-size="10" label="You can use arrows to navigate">
+            <UiTooltip
+              v-if="surround[1] && surround[1]._path"
+              placement="top"
+              :offset-size="10"
+              label="You can use arrows to navigate"
+            >
               <NuxtLink :to="{ path: surround[1]._path }">
                 <UiCard class="flex h-full items-center gap-4 p-4">
                   <div class="flex flex-col gap-0.5">

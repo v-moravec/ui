@@ -4,11 +4,11 @@ const props = withDefaults(
     (
       | {
           initials: string
-          imageUrl: never
+          imageUrl?: never
         }
       | {
           imageUrl: string
-          initials: never
+          initials?: never
         }
     ) & {
       class?: string

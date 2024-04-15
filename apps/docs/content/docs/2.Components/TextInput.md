@@ -1,6 +1,6 @@
 ---
 title: Text input
-description: TODO
+description:
 ---
 
 :preview-and-code{name=UiInput}

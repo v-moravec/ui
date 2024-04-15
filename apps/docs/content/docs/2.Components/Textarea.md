@@ -1,6 +1,6 @@
 ---
 title: Textarea
-description: TODO
+description:
 ---
 
 :preview-and-code{name=TextareaExample}

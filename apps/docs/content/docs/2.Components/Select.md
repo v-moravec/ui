@@ -1,6 +1,6 @@
 ---
 title: Select
-description: TODO
+description:
 ---
 
 :preview-and-code{name=SelectExample}

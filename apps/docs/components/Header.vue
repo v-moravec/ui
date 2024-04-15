@@ -25,13 +25,7 @@
               </template>
             </UiSidebar>
           </div>
-          <NuxtLink
-            class="flex h-full w-fit items-center gap-1.5 text-nowrap text-lg font-bold"
-            aria-label="Home"
-            :to="{ path: '/' }"
-          >
-            <FullLogo />
-          </NuxtLink>
+          <FullLogo />
           <div class="hidden items-center gap-2 md:flex">
             <NuxtLink v-for="link in docsLinks" :to="link.to">
               <UiButton type="accent" size="sm">{{ link.label }}</UiButton>

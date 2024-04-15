@@ -1,6 +1,6 @@
 ---
 title: Checkbox
-description: Enable users to select or deselect a single option from a set of choices
+description: Enable users to select or deselect an option from a set of choices
 ---
 
 :preview-and-code{name=CheckboxExample}
