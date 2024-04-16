@@ -1,6 +1,7 @@
 ---
 title: Accordion
 description: Allow users to expand and collapse sections of content
+componentName: UiAccordion
 ---
 
 :preview-and-code{name=AccordionExample}
@@ -9,4 +10,6 @@ description: Allow users to expand and collapse sections of content
 
 :installation{name=accordion}
 
-## Props
+:props{:name=componentName}
+
+:slots{:name=componentName}

@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import type { HTMLAttributes, InputHTMLAttributes } from 'vue'
+import type { InputHTMLAttributes } from 'vue'
 
 const props = defineProps<{
-  class?: HTMLAttributes['class']
+  class?: string
   type?: InputHTMLAttributes['type']
-  placeholder?: InputHTMLAttributes['placeholder']
+  placeholder?: string
 }>()
 
-const modelValue = defineModel()
+const modelValue = defineModel<string | number>()
 </script>
 
 <template>

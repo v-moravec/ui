@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Switch } from '@headlessui/vue'
 
-const checked = ref(false)
+const checked = defineModel<boolean>()
 </script>
 
 <template>

@@ -1,7 +1,7 @@
 <template>
   <BlockSectionSimple
     title="Simple"
-    description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec nunc."
+    description="This is a simple section description. You can replace it using props."
   >
     <div class="mx-auto grid max-w-2xl grid-cols-1 gap-4 md:grid-cols-2">
       <UiCard>

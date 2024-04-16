@@ -4,6 +4,7 @@ description:
 links:
   - name: Floating UI docs
     to: https://floating-ui.com/docs/getting-started
+componentName: UiTooltip
 ---
 
 :preview-and-code{name=TooltipExample}
@@ -12,6 +13,8 @@ links:
 
 :installation{name=tooltip}
 
-## Props
+:props{:name=componentName}
 
 :component-example{name=TooltipPropsExample}
+
+:slots{:name=componentName}

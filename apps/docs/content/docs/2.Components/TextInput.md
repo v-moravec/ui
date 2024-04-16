@@ -1,10 +1,15 @@
 ---
 title: Text input
 description:
+componentName: UiTextinput
 ---
 
-:preview-and-code{name=UiInput}
+:preview-and-code{name=UiTextinput}
 
 ## Installation
 
-:installation{name=input}
+:installation{name=textinput}
+
+:props{:name=componentName}
+
+:slots{:name=componentName}

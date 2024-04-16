@@ -1,6 +1,7 @@
 ---
 title: Dialog
 description:
+componentName: UiDialog
 ---
 
 :preview-and-code{name=DialogExample}
@@ -9,6 +10,8 @@ description:
 
 :installation{name=dialog}
 
-## Props
+:props{:name=componentName}
 
 :component-example{name=DialogPropsExample}
+
+:slots{:name=componentName}

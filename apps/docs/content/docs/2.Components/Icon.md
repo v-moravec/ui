@@ -6,7 +6,7 @@ links:
     to: https://nuxt.com/modules/icon
 ---
 
-After careful consideration, I've decided against developing a custom component for handling icons within this UI library. The reason behind this decision is straightforward: there already exists a [fantastic solution](https://nuxt.com/modules/icon) that perfectly fits the needs and likely surpasses what I could have developed on my own.
+After careful consideration, we've decided against developing a custom component for handling icons within this UI library. The reason behind this decision is straightforward: there already exists a [fantastic solution](https://nuxt.com/modules/icon) that perfectly fits the needs and likely surpasses what we could have developed on our own.
 
 ## Why should you use Nuxt Icon module?
 

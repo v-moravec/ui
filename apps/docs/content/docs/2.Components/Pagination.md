@@ -1,6 +1,7 @@
 ---
 title: Pagination
 description:
+componentName: UiPagination
 ---
 
 :preview-and-code{name=PaginationExample}
@@ -8,3 +9,7 @@ description:
 ## Installation
 
 :installation{name=pagination}
+
+:props{:name=componentName}
+
+:slots{:name=componentName}

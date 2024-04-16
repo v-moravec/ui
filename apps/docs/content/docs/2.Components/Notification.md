@@ -1,6 +1,7 @@
 ---
 title: Notification
 description:
+componentName: UiNotifications
 ---
 
 :preview-and-code{name=NotificationExample}
@@ -9,6 +10,8 @@ description:
 
 :installation{name=notifications}
 
-## Props
+:props{:name=UiNotificationsNotification}
 
 :component-example{name=NotificationPropsExample}
+
+:slots{:name=componentName}

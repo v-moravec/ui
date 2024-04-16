@@ -33,17 +33,12 @@ const categories = [
       },
       {
         title: 'About',
-        to: '/blocks/auth',
-        component: BlocksPreviewPlaceholder,
-      },
-      {
-        title: 'Showcase',
-        to: '/blocks/auth',
+        to: '/blocks/about',
         component: BlocksPreviewPlaceholder,
       },
       {
         title: 'Contact',
-        to: '/blocks/auth',
+        to: '/blocks/contact',
         component: BlocksPreviewPlaceholder,
       },
     ],
@@ -63,12 +58,12 @@ const categories = [
       },
       {
         title: 'Header',
-        to: '/blocks',
+        to: '/blocks/header',
         component: BlocksPreviewPlaceholder,
       },
       {
         title: 'Footer',
-        to: '/blocks',
+        to: '/blocks/footer',
         component: BlocksPreviewPlaceholder,
       },
     ],

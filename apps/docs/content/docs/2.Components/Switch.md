@@ -4,6 +4,7 @@ description:
 links:
   - name: HeadlessUI docs
     to: https://headlessui.com/vue/switch
+componentName: UiSwitch
 ---
 
 :preview-and-code{name=UiSwitch}
@@ -12,3 +13,6 @@ links:
 
 :installation{name=switch}
 
+:props{:name=componentName}
+
+:slots{:name=componentName}

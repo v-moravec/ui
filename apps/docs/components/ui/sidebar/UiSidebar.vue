@@ -1,11 +1,10 @@
 <script lang="ts" setup>
 import { TransitionRoot, TransitionChild, Dialog, DialogPanel } from '@headlessui/vue'
-import type { HTMLAttributes } from 'vue'
 
 const props = withDefaults(
   defineProps<{
     position?: 'left' | 'right' | 'bottom'
-    class?: HTMLAttributes['class']
+    class?: string
     showOverlay?: boolean
     preventClose?: boolean
   }>(),

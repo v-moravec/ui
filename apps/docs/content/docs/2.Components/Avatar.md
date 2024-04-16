@@ -1,6 +1,7 @@
 ---
 title: Avatar
 description: Display a user's profile picture or icon in a compact and visually appealing manner
+componentName: UiAvatar
 ---
 
 :preview-and-code{name=AvatarExample}
@@ -9,6 +10,8 @@ description: Display a user's profile picture or icon in a compact and visually 
 
 :installation{name=avatar}
 
-## Props
+:props{:name=componentName}
 
 :component-example{name=AvatarPropsExample}
+
+:slots{:name=componentName}

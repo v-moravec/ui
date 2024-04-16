@@ -1,6 +1,7 @@
 ---
 title: Table
 description: Display tabular data in a structured format
+componentName: UiTable
 ---
 
 :preview-and-code{name=TableExample}
@@ -8,3 +9,7 @@ description: Display tabular data in a structured format
 ## Installation
 
 :installation{name=table}
+
+:props{:name=componentName}
+
+:slots{:name=componentName}

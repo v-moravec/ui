@@ -3,7 +3,7 @@ import type {
   EmblaOptionsType as UiCarouselOptions,
   EmblaPluginType as UiCarouselPlugin,
 } from 'embla-carousel'
-import type { HTMLAttributes, Ref } from 'vue'
+import type { Ref } from 'vue'
 
 export interface UiCarouselProps {
   opts?: UiCarouselOptions | Ref<UiCarouselOptions>
@@ -16,5 +16,5 @@ export interface UiCarouselEmits {
 }
 
 export interface WithClassAsProps {
-  class?: HTMLAttributes['class']
+  class?: string
 }

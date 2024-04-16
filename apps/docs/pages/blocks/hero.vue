@@ -14,33 +14,10 @@ const blocks = [
 </script>
 
 <template>
-  <main class="container mx-auto px-4 py-10">
-    <UiTextHeading>Hero</UiTextHeading>
-    <Installation name="hero" type="block"></Installation>
-    <div>
-      <UiTabs
-        :items="[
-          { label: 'Preview', slot: 'preview' },
-          { label: 'Code', slot: 'code' },
-        ]"
-        v-for="block in blocks"
-      >
-        <template #bar>
-          <UiTextTitle class="text-xl">{{ block.title }}</UiTextTitle>
-        </template>
-        <template #preview>
-          <div class="my-2 @container">
-            <UiCard
-              class="flex max-h-[800px] items-center justify-center overflow-hidden p-0 @7xl:aspect-[16/9] sm:max-h-none"
-            >
-              <component :is="block.component" />
-            </UiCard>
-          </div>
-        </template>
-        <template #code>
-          <ComponentCode :name="block.name" />
-        </template>
-      </UiTabs>
-    </div>
-  </main>
+  <BlocksPage
+    :blocks="blocks"
+    title="Hero"
+    installationName="hero"
+    class="flex max-h-[800px] items-center justify-center overflow-hidden p-0 @7xl:aspect-[16/9] sm:max-h-none"
+  />
 </template>

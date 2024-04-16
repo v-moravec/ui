@@ -9,5 +9,5 @@ const blocks = [
 </script>
 
 <template>
-  <BlocksPage :blocks="blocks" title="Auth" installationName="auth" />
+  <BlocksPage :blocks="blocks" title="Contact" installationName="contact" />
 </template>

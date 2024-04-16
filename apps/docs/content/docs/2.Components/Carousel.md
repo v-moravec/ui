@@ -4,6 +4,7 @@ description:
 links:
   - name: Embla Carousel docs
     to: https://www.embla-carousel.com/get-started/vue/
+componentName: UiCarousel
 ---
 
 :preview-and-code{name=CarouselExample}
@@ -11,3 +12,7 @@ links:
 ## Installation
 
 :installation{name=carousel}
+
+:props{:name=componentName}
+
+:slots{:name=componentName}

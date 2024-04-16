@@ -2,7 +2,7 @@
 import { TransitionRoot, TransitionChild, Dialog, DialogPanel } from '@headlessui/vue'
 
 const props = defineProps<{
-  class?: HTMLAttributes['class']
+  class?: string
 }>()
 
 const isOpen = defineModel<boolean>()

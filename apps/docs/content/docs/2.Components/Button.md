@@ -1,6 +1,7 @@
 ---
 title: Button
 description: Create interactive buttons in a user interface
+componentName: UiButton
 ---
 
 :preview-and-code{name=ButtonExample}
@@ -9,6 +10,8 @@ description: Create interactive buttons in a user interface
 
 :installation{name=button}
 
-## Props
+:props{:name=componentName}
 
 :component-example{name=ButtonPropsExample}
+
+:slots{:name=componentName}

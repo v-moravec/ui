@@ -7,7 +7,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <TabGroup>
+  <TabGroup as="div">
     <div class="flex flex-wrap items-center justify-between gap-2">
       <slot name="bar"></slot>
       <TabList class="flex w-fit gap-2 rounded-md bg-secondary p-1.5">

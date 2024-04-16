@@ -20,7 +20,15 @@ export default defineNuxtConfig({
     },
   },
   css: ['~/assets/css/themes.css'],
-  modules: ['@nuxt/content', '@nuxtjs/tailwindcss', 'nuxt-icon', '@nuxtjs/color-mode', '@nuxtjs/seo', 'nuxt-shiki'],
+  modules: [
+    '@nuxt/content',
+    '@nuxtjs/tailwindcss',
+    'nuxt-icon',
+    '@nuxtjs/color-mode',
+    '@nuxtjs/seo',
+    'nuxt-shiki',
+    'nuxt-component-meta',
+  ],
   content: {
     highlight: {
       theme: {

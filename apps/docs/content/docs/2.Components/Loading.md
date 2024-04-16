@@ -15,8 +15,8 @@ description:
 
 :preview-and-code{name=LoadingProgressExample}
 
+:props{:name=UiLoadingProgress}
+
 ## Installation
 
 :installation{name=loading}
-
-## Props

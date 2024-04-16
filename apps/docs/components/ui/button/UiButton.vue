@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import type { HTMLAttributes } from 'vue'
-
 const props = defineProps<{
   type?: 'primary' | 'secondary' | 'accent'
   outline?: boolean
   size?: 'sm' | 'md' | 'lg'
-  class?: HTMLAttributes['class']
+  class?: string
 }>()
 
 const base = 'whitespace-nowrap rounded-lg flex justify-center items-center '

@@ -30,7 +30,7 @@ const rows = computed(() => {
 
 <template>
   <div class="flex w-full flex-col items-end gap-2">
-    <UiTable :columns="columns" :items="rows" />
+    <UiTable :columns="columns" :items="items" />
     <UiPagination v-model="page" :limit="40" :totalPages="Math.ceil(items.length / itemsPerPage)" />
   </div>
 </template>

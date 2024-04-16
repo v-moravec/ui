@@ -7,7 +7,7 @@
       ]"
     >
       <template #login>
-        <UiCard class="flex w-full max-w-sm flex-col gap-4 min-w-96">
+        <UiCard class="flex w-full min-w-96 max-w-sm flex-col gap-4">
           <div>
             <p class="mb-1 text-2xl font-bold">Login</p>
             <p>
@@ -15,13 +15,13 @@
               <span class="underline">Register</span>
             </p>
           </div>
-          <UiInput type="text" placeholder="Username" />
-          <UiInput type="password" placeholder="Password" />
+          <UiTextinput type="text" placeholder="Username" />
+          <UiTextinput type="password" placeholder="Password" />
           <UiButton>Login</UiButton>
         </UiCard>
       </template>
       <template #register>
-        <UiCard class="flex w-full max-w-sm flex-col gap-4 min-w-96">
+        <UiCard class="flex w-full min-w-96 max-w-sm flex-col gap-4">
           <div>
             <p class="mb-1 text-2xl font-bold">Register</p>
             <p>
@@ -29,8 +29,8 @@
               <span class="underline">Login</span>
             </p>
           </div>
-          <UiInput type="text" placeholder="Username" />
-          <UiInput type="password" placeholder="Password" />
+          <UiTextinput type="text" placeholder="Username" />
+          <UiTextinput type="password" placeholder="Password" />
           <UiButton>Register</UiButton>
         </UiCard>
       </template>

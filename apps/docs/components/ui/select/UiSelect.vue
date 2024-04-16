@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import { Listbox, ListboxButton, ListboxOptions, ListboxOption } from '@headlessui/vue'
-import type { HTMLAttributes } from 'vue'
 
 const props = defineProps<{
   options: { label: string; value: any }[]
-  buttonClass?: HTMLAttributes['class']
-  optionsClass?: HTMLAttributes['class']
-  optionClass?: HTMLAttributes['class']
+  buttonClass?: string
+  optionsClass?: string
+  optionClass?: string
 }>()
 
 const selected = defineModel<{ label: string; value: any }>()

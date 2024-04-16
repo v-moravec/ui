@@ -6,7 +6,6 @@ export type Column = {
 }
 
 export type Item = {
-  id: number | string
   [key: string]: string | number
 }
 
@@ -64,9 +63,9 @@ function sort(field: string) {
 </script>
 
 <template>
-  <div class="w-full overflow-x-auto rounded border border-border">
-    <table class="min-w-full divide-y divide-neutral-300 text-left text-sm">
-      <thead class="text-neutral-700">
+  <div class="w-full overflow-x-auto rounded-lg border border-border">
+    <table class="min-w-full divide-y-2 divide-border text-left text-sm">
+      <thead class="text-neutral-700 dark:text-neutral-100">
         <tr>
           <th class="px-8 py-4" v-for="column in columns" :key="column.field">
             <span v-if="!column.sortable">{{ column.label }}</span>
@@ -80,11 +79,14 @@ function sort(field: string) {
           </th>
         </tr>
       </thead>
-      <tbody class="divide-200 divide-y text-neutral-600">
+      <tbody class="divide-y divide-border text-neutral-600 dark:text-neutral-200">
         <tr v-for="item in localItems" :key="item.id">
-          <td class="whitespace-nowrap px-8 py-4" v-for="column in columns" :key="column.field">
-            {{ item[column.field] }}
-          </td>
+          <td
+            v-html="item[column.field]"
+            class="whitespace-nowrap px-8 py-4"
+            v-for="column in columns"
+            :key="column.field"
+          ></td>
         </tr>
       </tbody>
     </table>

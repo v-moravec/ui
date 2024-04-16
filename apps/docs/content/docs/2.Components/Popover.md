@@ -4,6 +4,7 @@ description:
 links:
   - name: HeadlessUI docs
     to: https://headlessui.com/vue/popover
+componentName: UiPopover
 ---
 
 :preview-and-code{name=PopoverExample}
@@ -12,6 +13,8 @@ links:
 
 :installation{name=popover}
 
-## Props
+:props{:name=componentName}
 
 :component-example{name=PopoverPropsExample}
+
+:slots{:name=componentName}
