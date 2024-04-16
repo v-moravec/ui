@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 const props = defineProps<{
   title: string
-  description: string
+  description?: string
   links: { name: string; to: string }[]
 }>()
 </script>
