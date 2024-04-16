@@ -46,7 +46,12 @@ watch(
       currentPage.value === props.totalPages
         ? currentPage.value - Math.floor(validLimit / 2) - 1
         : Math.max(2, currentPage.value - Math.floor(validLimit / 2))
-    visiblePages.value = Array.from({ length: maxPages - 2 }, (_, index) => index + startPage.value)
+    endPage.value = Math.min(props.totalPages - 1, startPage.value + validLimit - 1)
+    if(endPage.value - startPage.value < validLimit - 1) {
+      startPage.value = Math.max(2, endPage.value - validLimit + 1)
+    }
+    const length = endPage.value - startPage.value + 1
+    visiblePages.value = Array.from({ length: length }, (_, index) => index + startPage.value)
   },
   { immediate: true }
 )
@@ -81,7 +86,7 @@ watch(
         {{ page }}
       </UiButton>
 
-      <span v-if="currentPage < totalPages - 1">...</span>
+      <span v-if="currentPage < totalPages - Math.round(validLimit / 2)">...</span>
       <UiButton
         size="sm"
         @click="setPage(props.totalPages)"
