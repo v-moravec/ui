@@ -13,4 +13,3 @@ componentName: UiTextarea
 :props{:name=componentName}
 
 :slots{:name=componentName}
-
