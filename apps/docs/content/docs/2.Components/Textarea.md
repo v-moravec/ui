@@ -9,7 +9,3 @@ componentName: UiTextarea
 ## Installation
 
 :installation{name=textarea}
-
-:props{:name=componentName}
-
-:slots{:name=componentName}
