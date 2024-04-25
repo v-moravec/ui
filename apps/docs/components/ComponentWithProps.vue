@@ -14,12 +14,12 @@ const model = defineModel<ComponentWithPropsProps>()
           <UiSelect button-class="px-1 py-0.5" v-model="prop.value" :options="prop.options" />
           <p class="text-sm">"</p>
         </div>
-        <div v-if="prop.type === 'string' && typeof prop.value === 'string'" class="ml-4 flex items-baseline">
+        <div v-if="prop.type === 'string' && typeof prop.value !== 'boolean'" class="ml-4 flex items-baseline">
           <p class="font-mono text-xs">{{ prop.name }}="</p>
           <UiTextinput class="px-1 py-0.5" v-model="prop.value" />
           <p class="text-sm">"</p>
         </div>
-        <div v-if="prop.type === 'number' && typeof prop.value === 'number'" class="ml-4 flex items-baseline">
+        <div v-if="prop.type === 'number' && typeof prop.value !== 'boolean'" class="ml-4 flex items-baseline">
           <p class="font-mono text-xs">{{ prop.name }}="</p>
           <UiTextinput class="px-1 py-0.5" type="number" v-model="prop.value" />
           <p class="text-sm">"</p>

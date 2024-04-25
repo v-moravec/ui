@@ -7,7 +7,7 @@ const props = defineProps<{
   placeholder?: string
 }>()
 
-const modelValue = defineModel<string | number>()
+const modelValue = defineModel<string | number | undefined | null>()
 </script>
 
 <template>
