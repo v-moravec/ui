@@ -14,10 +14,12 @@ const blocks = [
 </script>
 
 <template>
-  <BlocksPage
-    :blocks="blocks"
-    title="Hero"
-    installationName="hero"
-    class="flex max-h-[800px] items-center justify-center overflow-hidden p-0 @7xl:aspect-[16/9] sm:max-h-none"
-  />
+  <div class="@container">
+    <BlocksPage
+      :blocks="blocks"
+      title="Hero"
+      installationName="hero"
+      class="flex max-h-[800px] items-center justify-center overflow-hidden p-0 @7xl:aspect-[16/9] sm:max-h-none"
+    />
+  </div>
 </template>

@@ -10,7 +10,7 @@ const props = defineProps<{
   <UiCard
     :class="
       cn(
-        'not-prose relative z-10 my-4 max-w-full items-center justify-center rounded-lg border text-black @container dark:text-primary sm:flex sm:p-20',
+        'not-prose relative z-10 my-4 max-w-full items-center justify-center rounded-lg border text-black dark:text-primary sm:flex sm:p-20',
         props.class
       )
     "

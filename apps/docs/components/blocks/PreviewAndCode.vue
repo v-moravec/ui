@@ -23,7 +23,7 @@ const props = defineProps<{
         <UiTextTitle class="text-xl">{{ block.title }}</UiTextTitle>
       </template>
       <template #preview>
-        <div class="my-2 @container">
+        <div class="my-2">
           <UiCard :class="cn('flex items-center justify-center', props.class)">
             <component :is="block.component" />
           </UiCard>
