@@ -7,7 +7,6 @@ const nav = await fetchContentNavigation()
 
 const navigationItems = computed(() => {
   return nav
-    .filter((item) => item._path.startsWith('/' + route.path.split('/')[1]))
     .map((item) => item.children)
     .flat()
     .filter((item): item is NavItem => !!item)

@@ -28,6 +28,7 @@ export default defineNuxtConfig({
     '@nuxtjs/seo',
     'nuxt-shiki',
     'nuxt-component-meta',
+    '@nuxt/image',
   ],
   content: {
     highlight: {

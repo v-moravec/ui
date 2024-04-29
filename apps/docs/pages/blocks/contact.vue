@@ -1,13 +1,13 @@
 <script setup lang="ts">
 const blocks = [
   {
-    title: 'Login form',
-    name: 'LoginForm',
-    component: defineAsyncComponent(() => import('~/components/content/blocks/LoginForm.vue')),
+    title: 'Contact Form',
+    name: 'BlockContact',
+    component: defineAsyncComponent(() => import('~/components/block/contact/BlockContact.vue')),
   },
 ]
 </script>
 
 <template>
-  <BlocksPage :blocks="blocks" title="Contact" installationName="contact" />
+  <BlocksPage :blocks="blocks" title="Contact" installationName="contact" class="overflow-hidden" />
 </template>

@@ -69,11 +69,7 @@ const docsLinks = [
 const links = [
   {
     icon: 'fa6-brands:github',
-    url: 'https://github.com/v-moravec',
-  },
-  {
-    icon: 'fa6-brands:linkedin',
-    url: 'https://linkedin.com/in/v-moravec',
+    url: 'https://github.com/v-moravec/ui',
   },
 ]
 </script>
