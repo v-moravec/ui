@@ -25,7 +25,7 @@ const props = defineProps<{
         </Tab>
       </TabList>
     </div>
-    <TabPanels>
+    <TabPanels class="mt-4">
       <TabPanel :unmount="false" v-for="(item, index) in items" :key="index" v-slot="{ selected }">
         <slot :name="item.slot || 'item'" :item="item" :index="index" :selected="selected">
           {{ item.content }}

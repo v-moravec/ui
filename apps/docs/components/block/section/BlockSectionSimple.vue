@@ -8,8 +8,8 @@ const props = defineProps<{
 <template>
   <section class="container mx-auto p-4 text-center">
     <div class="mx-auto mb-8 flex flex-col items-center">
-      <UiTextSectionHeading>{{ props.title }}</UiTextSectionHeading>
-      <UiTextNormal class="max-w-lg">
+      <UiTextSectionHeading :class="{ 'sm:mb-4': !!props.description }">{{ props.title }}</UiTextSectionHeading>
+      <UiTextNormal v-if="props.description" class="mb-8 max-w-lg">
         {{ props.description }}
       </UiTextNormal>
     </div>

@@ -1,6 +1,6 @@
 <template>
   <h2 :id="id">
-    <a v-if="id && generate" :href="`#${id}`" class="font-semibold no-underline hover:underline">
+    <a v-if="id && generate" :href="`#${id}`" class="font-bold no-underline hover:underline">
       <slot />
     </a>
     <slot v-else />

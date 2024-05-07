@@ -1,14 +1,17 @@
 <script setup lang="ts">
-import type { Placement } from '@floating-ui/vue'
+import type { Placement, Strategy } from '@floating-ui/vue'
 
 const props = withDefaults(
   defineProps<{
     label: string
     placement?: Placement
+    strategy?: Strategy
     offsetSize?: number
+    class?: string
   }>(),
   {
     placement: 'bottom',
+    strategy: 'absolute',
     offsetSize: 7,
   }
 )
@@ -17,7 +20,7 @@ const {
   anchor,
   floating: tooltip,
   floatingStyles,
-} = useUiFloating({ placement: props.placement, offsetSize: props.offsetSize })
+} = useUiFloating({ placement: props.placement, offsetSize: props.offsetSize, strategy: props.strategy })
 
 const open = ref(false)
 
@@ -37,7 +40,7 @@ function onMouseLeave() {
         <UiButton>Hover me</UiButton>
       </slot>
     </div>
-    <div v-if="open" :style="floatingStyles" ref="tooltip" class="px-2">
+    <div v-if="open" :style="floatingStyles" ref="tooltip" :class="cn('px-2 z-10 max-w-md', props.class)">
       <Transition
         appear
         enterActiveClass="motion-safe:transition duration-300"
@@ -48,7 +51,7 @@ function onMouseLeave() {
         leaveToClass="opacity-0 translate-y-1"
       >
         <div
-          class="left-0 top-0 max-w-[100vw] text-wrap rounded-lg bg-primary px-2 py-0.5 text-sm text-primary-contrast"
+          class="left-0 top-0 max-w-[100vw] text-wrap rounded-lg bg-primary px-2 py-1 text-sm text-primary-contrast"
         >
           {{ props.label }}
         </div>

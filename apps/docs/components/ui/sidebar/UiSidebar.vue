@@ -69,7 +69,7 @@ const panelClass = {
           :leave-to="enterFromLeaveTo[props.position]"
         >
           <DialogPanel :class="cn(panelClass[props.position], props.class)">
-            <div class="overflow-auto p-6">
+            <div class="overflow-auto p-6 h-full">
               <slot :close="closeModal" />
             </div>
           </DialogPanel>
