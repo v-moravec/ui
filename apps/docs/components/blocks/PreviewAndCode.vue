@@ -24,7 +24,7 @@ const props = defineProps<{
       </template>
       <template #preview>
         <div class="my-2">
-          <UiCard :class="cn('flex items-center justify-center', props.class)">
+          <UiCard :class="cn('flex items-center justify-center md:py-20', props.class)">
             <component :is="block.component" />
           </UiCard>
         </div>

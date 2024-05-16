@@ -19,18 +19,10 @@ const items: Item[] = [
   { id: 9, name: 'Jeff Doe', age: 65, city: 'Dallas' },
   { id: 10, name: 'Jared Doe', age: 70, city: 'San Jose' },
 ]
-
-const page = ref(1)
-const itemsPerPage = 3
-
-const rows = computed(() => {
-  return items.slice((page.value - 1) * itemsPerPage, page.value * itemsPerPage)
-})
 </script>
 
 <template>
   <div class="flex w-full flex-col items-end gap-2">
     <UiTable :columns="columns" :items="items" />
-    <UiPagination v-model="page" :limit="40" :totalPages="Math.ceil(items.length / itemsPerPage)" />
   </div>
 </template>

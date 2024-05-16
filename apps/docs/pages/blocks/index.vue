@@ -70,17 +70,24 @@ const categories = [
         usage: Usage.REUSABLE,
       },
       {
+        title: 'Cookies',
+        to: '/blocks/cookies',
+        component: BlocksPreviewPlaceholder,
+        usage: Usage.SINGLE_USE,
+      },
+      {
         title: 'Header',
         to: '/blocks/header',
         component: BlocksPreviewPlaceholder,
         image: '/img/previews/header.png',
         usage: Usage.SINGLE_USE,
       },
-      // {
-      //   title: 'Footer',
-      //   to: '/blocks/footer',
-      //   component: BlocksPreviewPlaceholder,
-      // },
+      {
+        title: 'Footer',
+        to: '/blocks/footer',
+        component: BlocksPreviewPlaceholder,
+        usage: Usage.SINGLE_USE,
+      },
     ],
   },
 ]

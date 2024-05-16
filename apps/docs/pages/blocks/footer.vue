@@ -1,9 +1,9 @@
 <script setup lang="ts">
 const blocks = [
   {
-    title: 'Card',
-    name: 'FeatureExample',
-    component: defineAsyncComponent(() => import('~/components/content/blocks/FeatureExample.vue')),
+    title: 'Simple',
+    name: 'BlockFooter',
+    component: defineAsyncComponent(() => import('~/components/block/footer/BlockFooter.vue')),
   },
 ]
 </script>

@@ -6,7 +6,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <component :is="props.as ?? 'div'" class="container mx-auto px-4">
+  <component :is="props.as ?? 'div'" :class="cn('container mx-auto px-4', props.class)">
     <slot />
   </component>
 </template>
