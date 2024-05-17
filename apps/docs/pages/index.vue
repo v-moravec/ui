@@ -9,8 +9,10 @@ const { addNotification } = useNotifications()
 </script>
 
 <template>
-  <div class="relative overflow-hidden">
-    <div class="z-20 mx-auto flex min-h-[calc(100svh-64px)] max-w-7xl flex-col justify-center px-4 py-10 sm:py-0">
+  <div class="overflow-x-clip">
+    <div
+      class="relative z-20 mx-auto flex min-h-[calc(80svh-64px)] max-w-7xl flex-col justify-center px-4 py-10 sm:py-0"
+    >
       <div class="z-10 mx-auto flex max-w-3xl flex-col justify-center">
         <div class="max-w-[725px] text-center">
           <h1
@@ -34,7 +36,7 @@ const { addNotification } = useNotifications()
           </NuxtLink>
         </div>
       </div>
-      <div class="absolute left-1/2 top-0 z-0 h-screen">
+      <div class="absolute left-1/2 top-0 z-0 h-full">
         <div
           class="pointer-events-none absolute left-1/2 top-1/2 z-10 h-96 w-96 -translate-x-14 -translate-y-2/3 select-none rounded-full bg-neutral-900 bg-primary/95 opacity-60 blur-3xl"
         />
@@ -44,4 +46,5 @@ const { addNotification } = useNotifications()
       </div>
     </div>
   </div>
+  <Blocks />
 </template>

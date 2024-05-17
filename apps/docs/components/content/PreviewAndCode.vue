@@ -18,8 +18,8 @@ const props = defineProps<{
         </ComponentExample>
       </template>
       <template #code>
-        <ComponentCode :name="name" />
         <Info>You can start with this code when using this component. To add source code of the component, proceed to the installation instructions.</Info>
+        <ComponentCode :name="name" />
       </template>
     </UiTabs>
   </div>

@@ -34,6 +34,7 @@ const { data: ast } = await useAsyncData(`content-example-${props.name}-ast`, ()
       { label: 'CLI', slot: 'cli' },
       { label: 'Manual', slot: 'manual' },
     ]"
+    class="my-4"
   >
     <template #cli>
       <div class="my-4">

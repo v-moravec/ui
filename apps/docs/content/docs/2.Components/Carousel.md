@@ -11,6 +11,12 @@ componentName: UiCarousel
 
 ## Installation
 
+Add typescript dependency:
+
+```bash
+pnpm add typescript
+```
+
 :installation{name=carousel}
 
 ::warning

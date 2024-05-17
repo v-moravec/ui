@@ -7,7 +7,7 @@
     :to="{ path: '/' }"
   >
     <Logo class="h-[17.8px]" />
-    <span>v-moravec/ui</span>
+    <span class="hidden sm:block">v-moravec/ui</span>
     <UiBadge class="-translate-x-1 -translate-y-2 scale-75">beta</UiBadge>
   </NuxtLink>
 </template>
