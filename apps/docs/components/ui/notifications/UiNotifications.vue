@@ -3,7 +3,7 @@ const { notifications } = useNotifications()
 </script>
 
 <template>
-  <div class="fixed bottom-0 z-50 sm:right-0 sm:w-auto">
+  <div class="fixed bottom-0 z-50 sm:right-0 sm:w-auto w-full">
     <TransitionGroup
       moveClass="transition-all duration-100"
       enterActiveClass="transition-all duration-100"
