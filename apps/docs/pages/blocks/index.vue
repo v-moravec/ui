@@ -73,6 +73,7 @@ const categories = [
         title: 'Cookies',
         to: '/blocks/cookies',
         component: BlocksPreviewPlaceholder,
+        image: '/img/previews/cookies.png',
         usage: Usage.SINGLE_USE,
       },
       {
@@ -86,6 +87,7 @@ const categories = [
         title: 'Footer',
         to: '/blocks/footer',
         component: BlocksPreviewPlaceholder,
+        image: '/img/previews/footer.png',
         usage: Usage.SINGLE_USE,
       },
     ],
