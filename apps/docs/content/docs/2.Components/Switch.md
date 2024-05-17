@@ -7,7 +7,7 @@ links:
 componentName: UiSwitch
 ---
 
-:preview-and-code{name=UiSwitch}
+:preview-and-code{name=SwitchExample}
 
 ## Installation
 

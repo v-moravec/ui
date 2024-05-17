@@ -38,6 +38,7 @@ const { data: ast } = await useAsyncData(`content-example-${props.name}-ast`, ()
     <template #cli>
       <div class="my-4">
         <ContentRenderer :value="ast" class="[&>div>pre]:!mt-0 [&>div>pre]:!rounded-t-none" />
+        <Info class="my-4">Code will be added to {{ `~/components/${type === 'component' ? 'ui' : 'block'}/${props.name}/` }}. You can further customize it there.</Info>
       </div>
     </template>
     <template #manual>

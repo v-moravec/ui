@@ -6,6 +6,7 @@ import { handleError } from '~/src/utils/handleError'
 import { existsSync, promises as fs } from 'fs'
 import prompts from 'prompts'
 import { installDependencies } from '~/src/utils/installDependencies'
+import consola from 'consola'
 
 const initFilesSchema = z.array(
   z.object({
@@ -19,6 +20,8 @@ export const init = new Command()
   .name('init')
   .description('init project with v-moravec/ui')
   .action(async () => {
+    consola.box('Welcome to @v-moravec/ui!')
+
     const spinner = ora('Loading files').start()
     const initFiles = initFilesSchema.safeParse(await (await fetch(BASE_URL + '/init-list')).json())
     spinner.succeed('Files loaded')

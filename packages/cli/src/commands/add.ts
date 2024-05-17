@@ -62,6 +62,8 @@ export const add = new Command()
   .description('add components and blocks to your application')
   .argument('[componentsAndBlocks...]', 'components and blocks to add')
   .action(async (componentsAndBlocks, opts) => {
+    consola.box('Let\'s add some components and blocks!')
+
     const options = addSchema.safeParse({ componentsAndBlocks })
     const spinner = ora('Loading components and blocks')
 
@@ -130,6 +132,8 @@ export const add = new Command()
           }
 
           await fs.writeFile('./' + c.shortPath, c.code)
+
+          consola.success(`Succesfully added component to ~/${c.shortPath}`)
         }
       } else if (blocks.data[component]) {
         const availableVersions = blocks.data[component].map((b) => b.pascalName)
@@ -173,6 +177,8 @@ export const add = new Command()
         }
 
         await fs.writeFile('./' + block.shortPath, block.code)
+
+        consola.success(`Succesfully added block to ~/${block.shortPath}`)
       }
     }
 
@@ -198,7 +204,6 @@ export const add = new Command()
           if (c.composableDependencies) {
             composableDependencies.push(...c.composableDependencies)
           }
-          // TODO: Shouldn't this be recursive? -> one dependency can have another dependencies
         }
       }
     }
@@ -229,4 +234,7 @@ export const add = new Command()
     if (dependencies.length) {
       await installDependencies(removeDuplicates(dependencies))
     }
+
+    consola.info('All components and blocks added.')
+    consola.warn('You might need to restart your development server to see the changes.')
   })

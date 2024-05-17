@@ -30,6 +30,13 @@ const props = defineProps<{
         </div>
       </template>
       <template #code>
+        <Warning>
+          This is the source code of the block. You can use it to add the block to your project manually.
+        </Warning>
+        <Info class="my-4">
+          After adding the block using the CLI, you can use it like this:
+          <span class="font-bold ml-1">{{ '<' + block.name + ' />' }}</span>
+        </Info>
         <ComponentCode :name="block.name" />
       </template>
     </UiTabs>

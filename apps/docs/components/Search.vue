@@ -74,7 +74,7 @@ const options = computed(() => {
           :to="result.item._path"
           v-for="result in options"
         >
-          <UiButton type="accent" class="w-full px-2 text-left text-sm">
+          <UiButton type="accent" class="w-full px-2 text-left justify-center text-sm">
             {{ result.item.title }}
           </UiButton>
         </NuxtLink>

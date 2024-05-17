@@ -1,5 +1,11 @@
 # @v-moravec/ui
 
+## 0.1.3
+
+### Patch Changes
+
+- Add more information to CLI.
+
 ## 0.1.2
 
 ### Patch Changes

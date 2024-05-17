@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { Command } from 'commander'
+import consola from 'consola'
 
 import { add } from '~/src/commands/add'
 import { init } from '~/src/commands/init'
