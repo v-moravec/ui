@@ -3,7 +3,7 @@
     <div>
       <p class="mb-1 text-2xl font-bold">Login</p>
       <p>
-        Don't have account yet?
+        Don't have an account yet?
         <span class="underline">Register</span>
       </p>
     </div>

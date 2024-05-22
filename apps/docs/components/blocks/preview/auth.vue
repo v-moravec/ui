@@ -6,7 +6,7 @@
       <div>
         <p class="mb-1 text-[10px] font-bold">Login</p>
         <p class="text-[8px]">
-          Don't have account yet?
+          Don't have an account yet?
           <span class="underline">Register</span>
         </p>
       </div>
